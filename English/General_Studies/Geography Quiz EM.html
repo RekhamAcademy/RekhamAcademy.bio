@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rekham Academy - Geography Quiz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f9f9f9;
+    }
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    .question {
+      margin: 20px 0;
+      padding: 15px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+    .options {
+      margin-top: 10px;
+    }
+    .options p {
+      margin: 5px 0;
+    }
+    button {
+      margin-top: 10px;
+    }
+    .answer {
+      margin-top: 10px;
+      font-weight: bold;
+      color: green;
+      display: none;
+    }
+  </style>
+  <script>
+    function toggleAnswer(id) {
+      const ans = document.getElementById(id);
+      ans.style.display = ans.style.display === 'none' ? 'block' : 'none';
+    }
+  </script>
+</head>
+<body>
+  <h1>Rekham Academy - Geography Quiz</h1>
+
+  <div class="question">
+    <p><strong>1. Depths of ocean water is indicated by</strong></p>
+    <div class="options">
+      <p>A. Isotherms</p>
+      <p>B. Isohyets</p>
+      <p>C. Isobars</p>
+      <p>D. Isobaths</p>
+    </div>
+    <button onclick="toggleAnswer('ans1')">Show Answer</button>
+    <p class="answer" id="ans1">Answer: D. Isobaths</p>
+  </div>
+
+  <div class="question">
+    <p><strong>2. During an earthquake, the point where the energy is released is called?</strong></p>
+    <div class="options">
+      <p>A. Epicentre</p>
+      <p>B. Focus or Hypocentre</p>
+      <p>C. Mantle</p>
+      <p>D. Seismic zone</p>
+    </div>
+    <button onclick="toggleAnswer('ans2')">Show Answer</button>
+    <p class="answer" id="ans2">Answer: B. Focus or Hypocentre</p>
+  </div>
+
+  <div class="question">
+    <p><strong>3. In which continent is the Atacama Desert located?</strong></p>
+    <div class="options">
+      <p>A. Africa</p>
+      <p>B. Asia</p>
+      <p>C. South America</p>
+      <p>D. Australia</p>
+    </div>
+    <button onclick="toggleAnswer('ans3')">Show Answer</button>
+    <p class="answer" id="ans3">Answer: C. South America</p>
+  </div>
+
+  <div class="question">
+    <p><strong>4. ‘Marble’, ‘Slate’, ‘Schist’ and ‘Diamond’ are examples of</strong></p>
+    <div class="options">
+      <p>A. Sedimentary rocks</p>
+      <p>B. Metamorphic rocks</p>
+      <p>C. Igneous rocks</p>
+      <p>D. Volcanic rocks</p>
+    </div>
+    <button onclick="toggleAnswer('ans4')">Show Answer</button>
+    <p class="answer" id="ans4">Answer: B. Metamorphic rocks</p>
+  </div>
+
+  <div class="question">
+    <p><strong>5. ‘Limestone’, ‘Sandstone’, ‘Shale’ and ‘Coal’ are examples of</strong></p>
+    <div class="options">
+      <p>A. Metamorphic rocks</p>
+      <p>B. Igneous rocks</p>
+      <p>C. Volcanic rocks</p>
+      <p>D. Sedimentary rocks</p>
+    </div>
+    <button onclick="toggleAnswer('ans5')">Show Answer</button>
+    <p class="answer" id="ans5">Answer: D. Sedimentary rocks</p>
+  </div>
+
+  <div class="question">
+    <p><strong>6. Torres Strait is located between?</strong></p>
+    <div class="options">
+      <p>A. New Zealand and Australia</p>
+      <p>B. Indonesia and Papua</p>
+      <p>C. Australia and New Guinea</p>
+      <p>D. Fiji and Vanuatu</p>
+    </div>
+    <button onclick="toggleAnswer('ans6')">Show Answer</button>
+    <p class="answer" id="ans6">Answer: C. Australia and New Guinea</p>
+  </div>
+
+  <div class="question">
+    <p><strong>7. Which city of Turkey is called ‘Gateway to the West’?</strong></p>
+    <div class="options">
+      <p>A. Ankara</p>
+      <p>B. Izmir</p>
+      <p>C. Istanbul</p>
+      <p>D. Antalya</p>
+    </div>
+    <button onclick="toggleAnswer('ans7')">Show Answer</button>
+    <p class="answer" id="ans7">Answer: C. Istanbul</p>
+  </div>
+
+  <div class="question">
+    <p><strong>8. Mount Tiyi is located in</strong></p>
+    <div class="options">
+      <p>A. Sikkim</p>
+      <p>B. Nagaland</p>
+      <p>C. Arunachal Pradesh</p>
+      <p>D. Mizoram</p>
+    </div>
+    <button onclick="toggleAnswer('ans8')">Show Answer</button>
+    <p class="answer" id="ans8">Answer: B. Nagaland</p>
+  </div>
+
+  <div class="question">
+    <p><strong>9. The coastal region where the Deltas of Godavari and Krishna rivers meet is called</strong></p>
+    <div class="options">
+      <p>A. Pulicat Lake</p>
+      <p>B. Kolleru Lake</p>
+      <p>C. Chilika Lake</p>
+      <p>D. Vembanad Lake</p>
+    </div>
+    <button onclick="toggleAnswer('ans9')">Show Answer</button>
+    <p class="answer" id="ans9">Answer: B. Kolleru Lake</p>
+  </div>
+
+  <div class="question">
+    <p><strong>10. ‘Nokrek’ is the highest peak of?</strong></p>
+    <div class="options">
+      <p>A. Khasi Hills</p>
+      <p>B. Mikir Hills</p>
+      <p>C. Garo Hills</p>
+      <p>D. Jaintia Hills</p>
+    </div>
+    <button onclick="toggleAnswer('ans10')">Show Answer</button>
+    <p class="answer" id="ans10">Answer: C. Garo Hills</p>
+  </div>
+
+</body>
+</html>
