@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rekham Academy - Geography Quiz (Bilingual)</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; background-color: #f9f9f9; }
+    h1 { text-align: center; color: #2c3e50; }
+    .question { margin: 20px 0; padding: 15px; background-color: #fff; border-radius: 8px; box-shadow: 0 0 5px rgba(0,0,0,0.1); }
+    .options p { margin: 5px 0; }
+    button { margin-top: 10px; }
+    .answer { margin-top: 10px; font-weight: bold; color: green; display: none; }
+  </style>
+  <script>
+    function toggleAnswer(id) {
+      const ans = document.getElementById(id);
+      ans.style.display = ans.style.display === 'none' ? 'block' : 'none';
+    }
+  </script>
+</head>
+<body>
+  <h1>Rekham Academy - Geography Quiz (English + Hindi)</h1>
+
+  <div class="question">
+    <p><strong>1. Depths of ocean water is indicated by / महासागर के जल की गहराई किससे दर्शाई जाती है?</strong></p>
+    <div class="options">
+      <p>A. Isotherms / समताप रेखाएँ</p>
+      <p>B. Isohyets / समवृष्टि रेखाएँ</p>
+      <p>C. Isobars / समदाब रेखाएँ</p>
+      <p>D. Isobaths / समगर्त रेखाएँ</p>
+    </div>
+    <button onclick="toggleAnswer('ans1')">Show Answer</button>
+    <p class="answer" id="ans1">Answer: D. Isobaths / समगर्त रेखाएँ</p>
+  </div>
+
+  <div class="question">
+    <p><strong>2. During an earthquake, the point where the energy is released is called? / भूकंप के दौरान वह बिंदु जहाँ ऊर्जा निकलती है, क्या कहलाता है?</strong></p>
+    <div class="options">
+      <p>A. Epicentre / उपकेंद्र</p>
+      <p>B. Focus or Hypocentre / केंद्र या अधःकेंद्र</p>
+      <p>C. Mantle / मैंटल</p>
+      <p>D. Seismic Zone / भूकंपीय क्षेत्र</p>
+    </div>
+    <button onclick="toggleAnswer('ans2')">Show Answer</button>
+    <p class="answer" id="ans2">Answer: B. Focus or Hypocentre / केंद्र या अधःकेंद्र</p>
+  </div>
+
+  <div class="question">
+    <p><strong>3. In which continent is the Atacama Desert located? / अटाकामा रेगिस्तान किस महाद्वीप में स्थित है?</strong></p>
+    <div class="options">
+      <p>A. Africa / अफ्रीका</p>
+      <p>B. Asia / एशिया</p>
+      <p>C. South America / दक्षिण अमेरिका</p>
+      <p>D. Australia / ऑस्ट्रेलिया</p>
+    </div>
+    <button onclick="toggleAnswer('ans3')">Show Answer</button>
+    <p class="answer" id="ans3">Answer: C. South America / दक्षिण अमेरिका
