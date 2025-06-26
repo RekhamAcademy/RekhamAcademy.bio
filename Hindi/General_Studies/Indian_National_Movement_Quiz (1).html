@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Indian National Movement Quiz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 20px;
+      padding: 10px;
+      background: #f4f4f9;
+      color: #222;
+      max-width: 480px;
+      margin: auto;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 24px;
+      color: #2c3e50;
+    }
+    .question {
+      background: #fff;
+      border-left: 5px solid #3498db;
+      margin-bottom: 15px;
+      padding: 10px 15px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .answer {
+      display: none;
+      margin-top: 10px;
+      color: #27ae60;
+      font-weight: bold;
+    }
+    button {
+      margin-top: 10px;
+      padding: 6px 10px;
+      background: #2980b9;
+      color: white;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #1f618d;
+    }
+  </style>
+  <script>
+    function toggleAnswer(id) {
+      const ans = document.getElementById(id);
+      ans.style.display = ans.style.display === "none" ? "block" : "none";
+    }
+  </script>
+</head>
+<body>
+
+  <h2>Indian National Movement Quiz – भारतीय राष्ट्रीय आंदोलन क्विज़</h2>
+
+  <div class="question">
+    <strong>1. Gandhiji promised Swaraj within a year if his programme was adopted during the <br> गांधीजी ने एक वर्ष के भीतर स्वराज का वादा किया यदि उनका कार्यक्रम किस आंदोलन के दौरान अपनाया गया?</strong>
+    <br><button onclick="toggleAnswer('a1')">Show Answer</button>
+    <div class="answer" id="a1">➡️ Non-Cooperation Movement. (असहयोग आंदोलन।)</div>
+  </div>
+
+  <div class="question">
+    <strong>2. Which prominent Indian leader attended all the three Round Table Conferences?<br>किस प्रमुख भारतीय नेता ने तीनों गोलमेज सम्मेलनों में भाग लिया?</strong>
+    <br><button onclick="toggleAnswer('a2')">Show Answer</button>
+    <div class="answer" id="a2">➡️ Dr. B.R. Ambedkar. (डॉ. बी.आर. अंबेडकर।)</div>
+  </div>
+
+  <div class="question">
+    <strong>3. Who was the British Governor-General of India at the time of 'Jallianwala Massacre'?<br>जलियांवाला बाग हत्याकांड के समय भारत के ब्रिटिश गवर्नर-जनरल कौन थे?</strong>
+    <br><button onclick="toggleAnswer('a3')">Show Answer</button>
+    <div class="answer" id="a3">➡️ Lord Chelmsford. (लॉर्ड चेम्सफोर्ड।)</div>
+  </div>
+
+  <div class="question">
+    <strong>4. The British Government's plan to arrest Mahatma Gandhi and other major Congress leaders before the Quit India Movement was known as<br>भारत छोड़ो आंदोलन से पहले महात्मा गांधी और अन्य प्रमुख कांग्रेस नेताओं को गिरफ्तार करने की ब्रिटिश सरकार की योजना को क्या कहा गया?</strong>
+    <br><button onclick="toggleAnswer('a4')">Show Answer</button>
+    <div class="answer" id="a4">➡️ Operation Zero Hour. (ऑपरेशन जीरो आवर।)</div>
+  </div>
+
+  <div class="question">
+    <strong>5. Who started a monthly journal 'The Indian Sociologist' to spread his revolutionary ideas among Indians?<br>भारतीयों के बीच अपने क्रांतिकारी विचारों को फैलाने के लिए 'द इंडियन सोशियोलॉजिस्ट' मासिक पत्रिका किसने शुरू की?</strong>
+    <br><button onclick="toggleAnswer('a5')">Show Answer</button>
+    <div class="answer" id="a5">➡️ Shyamji Krishna Varma. (श्यामजी कृष्ण वर्मा।)</div>
+  </div>
+
+  <div class="question">
+    <strong>6. Which Indian leader's name was proposed by the Extremist group of the Indian National Congress (INC) for the President of INC in 1907?<br>1907 में भारतीय राष्ट्रीय कांग्रेस (INC) के अध्यक्ष के लिए उग्रवादी समूह ने किस भारतीय नेता का नाम प्रस्तावित किया?</strong>
+    <br><button onclick="toggleAnswer('a6')">Show Answer</button>
+    <div class="answer" id="a6">➡️ Bal Gangadhar Tilak. (बाल गंगाधर तिलक।)</div>
+  </div>
+
+  <div class="question">
+    <strong>7. Who made major efforts to unite the Extremists and the Moderates under the Indian National Congress banner during the First World War?<br>प्रथम विश्व युद्ध के दौरान उग्रवादियों और नरमपंथियों को भारतीय राष्ट्रीय कांग्रेस के बैनर तले एकजुट करने के लिए किसने प्रमुख प्रयास किए?</strong>
+    <br><button onclick="toggleAnswer('a7')">Show Answer</button>
+    <div class="answer" id="a7">➡️ Annie Besant. (एनी बेसेंट।)</div>
+  </div>
+
+  <div class="question">
+    <strong>8. When did Mahatma Gandhi establish the Sabarmati Ashram in Ahmedabad?<br>महात्मा गांधी ने अहमदाबाद में साबरमती आश्रम की स्थापना कब की?</strong>
+    <br><button onclick="toggleAnswer('a8')">Show Answer</button>
+    <div class="answer" id="a8">➡️ 1916 AD. (1916 ईस्वी)</div>
+  </div>
+
+  <div class="question">
+    <strong>9. Who is the author of the book 'Vande Matram - The Biography of a Song'?<br>पुस्तक 'वंदे मातरम् - द बायोग्राफी ऑफ ए सॉन्ग' के लेखक कौन हैं?</strong>
+    <br><button onclick="toggleAnswer('a9')">Show Answer</button>
+    <div class="answer" id="a9">➡️ Sabyasachi Bhattacharya. (सब्यसाची भट्टाचार्य।)</div>
+  </div>
+
+  <div class="question">
+    <strong>10. George Yule was the first European to be elected the President of Indian National Congress at its<br>जॉर्ज यूल भारतीय राष्ट्रीय कांग्रेस के पहले यूरोपीय अध्यक्ष किस अधिवेशन में चुने गए थे?</strong>
+    <br><button onclick="toggleAnswer('a10')">Show Answer</button>
+    <div class="answer" id="a10">➡️ Allahabad Session in 1888. (1888 का इलाहाबाद अधिवेशन।)</div>
+  </div>
+
+</body>
+</html>
