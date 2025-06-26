@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Indian National Movement Quiz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 20px;
+      padding: 10px;
+      background: #e8f0fe;
+      color: #222;
+      max-width: 480px;
+      margin: auto;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 24px;
+      color: #1b4f72;
+    }
+    .question {
+      background: #ffffff;
+      border-left: 5px solid #f39c12;
+      margin-bottom: 15px;
+      padding: 12px 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .answer {
+      display: none;
+      margin-top: 10px;
+      color: #c0392b;
+      font-weight: bold;
+    }
+    button {
+      margin-top: 10px;
+      padding: 6px 12px;
+      background: #2e86c1;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #21618c;
+    }
+  </style>
+  <script>
+    function toggleAnswer(id) {
+      const ans = document.getElementById(id);
+      ans.style.display = ans.style.display === "none" ? "block" : "none";
+    }
+  </script>
+</head>
+<body>
+
+  <h2>Indian National Movement Quiz – భారత జాతీయోద్యమ క్విజ్</h2>
+
+  <div class="question">
+    <strong>1. Gandhiji promised Swaraj within a year if his programme was adopted during the<br>గాంధీజీ తన కార్యక్రమాన్ని స్వీకరిస్తే ఒక సంవత్సరంలో స్వరాజ్యాన్ని అందిస్తానని వాగ్దానం చేసిన ఉద్యమం ఏది?</strong>
+    <br><button onclick="toggleAnswer('a1')">Show Answer</button>
+    <div class="answer" id="a1">➡️ Non-Cooperation Movement. (అసహకార ఉద్యమం)</div>
+  </div>
+
+  <div class="question">
+    <strong>2. Which prominent Indian leader attended all the three Round Table Conferences?<br>మూడు రౌండ్ టేబుల్ సమావేశాలకు హాజరైన ప్రముఖ భారతీయ నాయకుడు ఎవరు?</strong>
+    <br><button onclick="toggleAnswer('a2')">Show Answer</button>
+    <div class="answer" id="a2">➡️ Dr. B.R. Ambedkar. (డా. బి.ఆర్. అంబేద్కర్)</div>
+  </div>
+
+  <div class="question">
+    <strong>3. Who was the British Governor-General of India at the time of 'Jallianwala Massacre'?<br>జలియన్‌వాలా దాడి జరిగినప్పుడు భారత గవర్నర్ జనరల్ ఎవరు?</strong>
+    <br><button onclick="toggleAnswer('a3')">Show Answer</button>
+    <div class="answer" id="a3">➡️ Lord Chelmsford. (లార్డ్ చెలంస్ఫోర్డ్)</div>
+  </div>
+
+  <div class="question">
+    <strong>4. The British Government's plan to arrest Mahatma Gandhi and other major Congress leaders before the Quit India Movement was known as<br>భారతాన్ని విడిచిపెట్టు ఉద్యమానికి ముందు గాంధీజీ మరియు ఇతర కాంగ్రెసు నాయకులను అరెస్ట్ చేసే బ్రిటిష్ ప్రణాళికకు పేరేమిటి?</strong>
+    <br><button onclick="toggleAnswer('a4')">Show Answer</button>
+    <div class="answer" id="a4">➡️ Operation Zero Hour. (ఆపరేషన్ జీరో అవర్)</div>
+  </div>
+
+  <div class="question">
+    <strong>5. Who started a monthly journal 'The Indian Sociologist' to spread his revolutionary ideas among Indians?<br>తన విప్లవాత్మక ఆలోచనలను భారతీయులలో వ్యాపించేందుకు 'ది ఇండియన్ సోషియాలజిస్ట్' మాస పత్రికను ప్రారంభించినవారు ఎవరు?</strong>
+    <br><button onclick="toggleAnswer('a5')">Show Answer</button>
+    <div class="answer" id="a5">➡️ Shyamji Krishna Varma. (శ్యామ్జీ కృష్ణ వర్మ)</div>
+  </div>
+
+  <div class="question">
+    <strong>6. Which Indian leader's name was proposed by the Extremist group of the Indian National Congress (INC) for the President of INC in 1907?<br>1907లో కాంగ్రెస్ అధ్యక్ష పదవికి ఉగ్రవాదుల గుంపు ప్రతిపాదించిన నాయకుడెవరు?</strong>
+    <br><button onclick="toggleAnswer('a6')">Show Answer</button>
+    <div class="answer" id="a6">➡️ Bal Gangadhar Tilak. (బాల గంగాధర్ తిలక్)</div>
+  </div>
+
+  <div class="question">
+    <strong>7. Who made major efforts to unite the Extremists and the Moderates under the Indian National Congress banner during the First World War?<br>ప్రధమ ప్రపంచ యుద్ధ సమయంలో ఉగ్రవాదులు మరియు మితవాదులను కాంగ్రెస్ కింద ఏకతాటిపైకి తేవడానికి ప్రయత్నించినవారు ఎవరు?</strong>
+    <br><button onclick="toggleAnswer('a7')">Show Answer</button>
+    <div class="answer" id="a7">➡️ Annie Besant. (అన్నీ బెసెంట్)</div>
+  </div>
+
+  <div class="question">
+    <strong>8. When did Mahatma Gandhi establish the Sabarmati Ashram in Ahmedabad?<br>అహ్మదాబాద్‌లో సబర్మతి ఆశ్రమాన్ని గాంధీజీ ఎప్పుడు స్థాపించారు?</strong>
+    <br><button onclick="toggleAnswer('a8')">Show Answer</button>
+    <div class="answer" id="a8">➡️ 1916 AD. (1916 ఈసవి)</div>
+  </div>
+
+  <div class="question">
+    <strong>9. Who is the author of the book 'Vande Matram - The Biography of a Song'?<br>'వందే మాతరం - ది బయోగ్రఫీ ఆఫ్ ఏ సాంగ్' అనే పుస్తక రచయిత ఎవరు?</strong>
+    <br><button onclick="toggleAnswer('a9')">Show Answer</button>
+    <div class="answer" id="a9">➡️ Sabyasachi Bhattacharya. (సబ్యసాచీ భట్టాచార్య)</div>
+  </div>
+
+  <div class="question">
+    <strong>10. George Yule was the first European to be elected the President of Indian National Congress at its<br>జార్జ్ యూల్ భారత జాతీయ కాంగ్రెస్ అధ్యక్షుడిగా ఎన్నికైన మొదటి యూరోపియన్. ఆయన ఏ సమావేశంలో అధ్యక్షుడిగా ఎన్నికయ్యారు?</strong>
+    <br><button onclick="toggleAnswer('a10')">Show Answer</button>
+    <div class="answer" id="a10">➡️ Allahabad Session in 1888. (1888లో అలహాబాద్ సమావేశం)</div>
+  </div>
+
+</body>
+</html>
