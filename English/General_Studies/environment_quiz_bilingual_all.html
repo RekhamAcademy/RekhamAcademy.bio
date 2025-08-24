@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Environment Quiz — Bilingual</title>
+<style>
+  body {
+    margin: 0; padding: 0;
+    font-family: system-ui, Noto Sans, Noto Sans Devanagari, sans-serif;
+    background: #f0f9ff;
+    color: #111;
+  }
+  .frame{width:min(100vw,540px);margin:0 auto;padding:20px;box-sizing:border-box;}
+  .title{background:#38bdf8;color:#fff;text-align:center;
+         padding:14px;border-radius:14px;
+         font-weight:800;font-size:clamp(20px,5vw,34px);
+         margin-bottom:16px;box-shadow:0 4px 10px rgba(0,0,0,0.15);}
+  .card{background:#ffffff;color:#111;border-radius:16px;
+        box-shadow:0 4px 10px rgba(0,0,0,0.1);
+        padding:14px;margin-bottom:14px;}
+  .qnum{font-weight:900;font-size:clamp(16px,5vw,28px);
+        background:#0ea5e9;color:#fff;border-radius:10px;
+        padding:4px 10px;display:inline-block;margin-bottom:8px;}
+  .qtext{font-weight:700;font-size:clamp(15px,4.4vw,24px);margin-bottom:6px;}
+  .qtext.hi{color:#374151;font-weight:600;}
+  .revealBtn{border:0;background:#0ea5e9;color:#fff;border-radius:10px;
+             padding:8px 12px;font-size:clamp(14px,4vw,20px);cursor:pointer;}
+  .answer{display:none;margin-top:10px;padding:10px;
+          border-radius:10px;background:#dcfce7;
+          border:2px dashed #16a34a;
+          font-size:clamp(14px,4vw,22px);font-weight:700;color:#166534;}
+  .controls{display:flex;gap:8px;justify-content:center;margin:14px 0;}
+  .controls button{border:0;padding:10px 14px;border-radius:10px;
+                   font-weight:800;background:#38bdf8;color:#fff;cursor:pointer;
+                   box-shadow:0 4px 10px rgba(0,0,0,0.2);}
+</style>
+</head><body><div class="frame">
+<div class="title">🌍 Environment • Biodiversity • Climate Change<br><small>Bilingual — Tap to reveal answers</small></div>
+
+    <section class="card" id="q1">
+      <div class="qnum">Q1</div>
+      <div class="qtext en">Which Maharatna company received the Green World Environment Award 2024 in the Corporate Social Responsibility (CSR) category?</div>
+      <div class="qtext hi">कौन सी महारत्न कंपनी को कॉर्पोरेट सोशल रिस्पॉन्सिबिलिटी (CSR) श्रेणी में ग्रीन वर्ल्ड एनवायरनमेंट अवार्ड 2024 मिला?</div>
+      <button class="revealBtn" data-target="a1">Reveal</button>
+      <div class="answer" id="a1">✅ Coal India Limited (CIL).<br>📖 कोल इंडिया लिमिटेड (CIL)।</div>
+    </section>
+    <section class="card" id="q2">
+      <div class="qnum">Q2</div>
+      <div class="qtext en">Which country launched the ‘Global Energy Efficiency Alliance’ during COP29?</div>
+      <div class="qtext hi">किस देश ने COP29 के दौरान ‘ग्लोबल एनर्जी एफिशिएंसी एलायंस’ लॉन्च किया?</div>
+      <button class="revealBtn" data-target="a2">Reveal</button>
+      <div class="answer" id="a2">✅ The UAE.<br>📖 संयुक्त अरब अमीरात (UAE)।</div>
+    </section>
+    <section class="card" id="q3">
+      <div class="qnum">Q3</div>
+      <div class="qtext en">‘Wild Ass Sanctuary’ in India is located at</div>
+      <div class="qtext hi">भारत में ‘वाइल्ड ऐस सेंचुरी’ कहाँ स्थित है?</div>
+      <button class="revealBtn" data-target="a3">Reveal</button>
+      <div class="answer" id="a3">✅ Little Rann of Kutch, Gujarat.<br>📖 लिटिल रण ऑफ कच्छ, गुजरात।</div>
+    </section>
+    <section class="card" id="q4">
+      <div class="qnum">Q4</div>
+      <div class="qtext en">Early succession ecosystems are those which are characterized by</div>
+      <div class="qtext hi">प्रारंभिक अनुक्रम पारिस्थितिक तंत्र की विशेषता क्या होती है?</div>
+      <button class="revealBtn" data-target="a4">Reveal</button>
+      <div class="answer" id="a4">✅ High net community production.<br>📖 उच्च शुद्ध सामुदायिक उत्पादन।</div>
+    </section>
+    <section class="card" id="q5">
+      <div class="qnum">Q5</div>
+      <div class="qtext en">The elements of ecosystems are divided into 4 categories on the basis of</div>
+      <div class="qtext hi">पारिस्थितिकी तंत्र के तत्वों को चार श्रेणियों में किस आधार पर विभाजित किया गया है?</div>
+      <button class="revealBtn" data-target="a5">Reveal</button>
+      <div class="answer" id="a5">✅ Functions.<br>📖 कार्य (फंक्शंस)।</div>
+    </section>
+    <section class="card" id="q6">
+      <div class="qnum">Q6</div>
+      <div class="qtext en">Who is the author of the book, ‘The Great Derangement: Climate Change and the Unthinkable’?</div>
+      <div class="qtext hi">पुस्तक ‘द ग्रेट डिरेन्जमेंट: क्लाइमेट चेंज एंड द अनथिंकेबल’ के लेखक कौन हैं?</div>
+      <button class="revealBtn" data-target="a6">Reveal</button>
+      <div class="answer" id="a6">✅ Amitav Ghosh.<br>📖 अमिताव घोष।</div>
+    </section>
+    <section class="card" id="q7">
+      <div class="qnum">Q7</div>
+      <div class="qtext en">The hydrological cycle is controlled by</div>
+      <div class="qtext hi">जलचक्र को कौन नियंत्रित करता है?</div>
+      <button class="revealBtn" data-target="a7">Reveal</button>
+      <div class="answer" id="a7">✅ Forests.<br>📖 वन।</div>
+    </section>
+    <section class="card" id="q8">
+      <div class="qnum">Q8</div>
+      <div class="qtext en">The specific place of an organism in an ecosystem is called</div>
+      <div class="qtext hi">पारिस्थितिकी तंत्र में किसी जीव के विशिष्ट स्थान को क्या कहा जाता है?</div>
+      <button class="revealBtn" data-target="a8">Reveal</button>
+      <div class="answer" id="a8">✅ Niche.<br>📖 निच (Niche)।</div>
+    </section>
+    <section class="card" id="q9">
+      <div class="qnum">Q9</div>
+      <div class="qtext en">The Dobson Unit is a famous unit for measuring</div>
+      <div class="qtext hi">डॉबसन इकाई का उपयोग किसके मापन के लिए किया जाता है?</div>
+      <button class="revealBtn" data-target="a9">Reveal</button>
+      <div class="answer" id="a9">✅ Ozone concentration.<br>📖 ओजोन सांद्रता।</div>
+    </section>
+    <section class="card" id="q10">
+      <div class="qnum">Q10</div>
+      <div class="qtext en">Plants that grow in saline water are called</div>
+      <div class="qtext hi">जो पौधे खारे पानी में उगते हैं उन्हें क्या कहते हैं?</div>
+      <button class="revealBtn" data-target="a10">Reveal</button>
+      <div class="answer" id="a10">✅ Halophytes.<br>📖 हैलोफाइट्स।</div>
+    </section>
+<div class="controls">
+  <button id="expandAll">Reveal All</button>
+  <button id="collapseAll">Hide All</button>
+</div>
+</div>
+<script>
+document.querySelectorAll('.revealBtn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const ans=document.getElementById(btn.dataset.target);
+    const open=ans.style.display==='block';
+    ans.style.display=open?'none':'block';
+    btn.textContent=open?'Reveal':'Hide';
+  });
+});
+const setAll=(show)=>{
+  document.querySelectorAll('.answer').forEach(a=>a.style.display=show?'block':'none');
+  document.querySelectorAll('.revealBtn').forEach(b=>b.textContent=show?'Hide':'Reveal');
+};
+document.getElementById('expandAll').addEventListener('click',()=>setAll(true));
+document.getElementById('collapseAll').addEventListener('click',()=>setAll(false));
+</script>
+</body></html>
