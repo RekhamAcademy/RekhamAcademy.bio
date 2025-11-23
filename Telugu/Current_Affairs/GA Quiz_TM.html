@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>సామాన్య అవగాహన — ఇంటరాక్టివ్ MCQ క్విజ్ (తెలుగు)</title>
+  <style>
+    :root {
+      --bg-soft: #eef3ff;
+      --card-bg: #ffffff;
+      --primary: #4f46e5;
+      --primary-soft: #6366f1;
+      --accent: #f97316;
+      --accent-soft: #fb923c;
+      --success: #16a34a;
+      --danger: #dc2626;
+      --pill-radius: 999px;
+      --card-radius: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: radial-gradient(circle at top left, #e0f2fe 0, #eef3ff 40%, #fdf2ff 100%);
+      color: #111827;
+    }
+
+    .page {
+      max-width: 520px;
+      margin: 10px auto 24px;
+      padding: 10px 10px 24px;
+    }
+
+    .title {
+      text-align: center;
+      font-size: 22px;
+      font-weight: 800;
+      margin: 4px 0 4px;
+      background: linear-gradient(90deg, #4f46e5, #ec4899);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 13px;
+      margin-bottom: 10px;
+      color: #4b5563;
+    }
+
+    .subtitle strong {
+      color: #111827;
+    }
+
+    .top-controls {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    button {
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 13px;
+      padding: 7px 16px;
+      border-radius: var(--pill-radius);
+      transition: transform 0.08s ease, box-shadow 0.08s ease, opacity 0.1s;
+      white-space: nowrap;
+    }
+
+    button:active {
+      transform: scale(0.97);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.18);
+    }
+
+    #scoreBtn {
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: #ffffff;
+    }
+
+    #revealAllBtn {
+      background: linear-gradient(135deg, #f97316, #ec4899);
+      color: #ffffff;
+    }
+
+    #resetBtn {
+      background: #e5e7eb;
+      color: #111827;
+    }
+
+    #scoreDisplay {
+      text-align: center;
+      margin-top: 6px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #1e40af;
+    }
+
+    .section-heading {
+      margin: 18px 0 8px;
+      font-size: 15px;
+      font-weight: 700;
+      color: #374151;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--card-radius);
+      padding: 10px 12px 12px;
+      margin-bottom: 10px;
+      box-shadow: 0 3px 12px rgba(15, 23, 42, 0.12);
+    }
+
+    .card.correct {
+      box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.4);
+    }
+
+    .card.incorrect {
+      box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.4);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+      gap: 6px;
+    }
+
+    .q-badge {
+      padding: 4px 10px;
+      border-radius: var(--pill-radius);
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .category-pill {
+      padding: 3px 10px;
+      border-radius: var(--pill-radius);
+      background: #dcfce7;
+      color: #166534;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .question-text {
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.25;
+      margin-bottom: 6px;
+      color: #111827;
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+
+    .option {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 9px;
+      border-radius: 999px;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      font-size: 14px;
+    }
+
+    .option input {
+      margin: 0;
+    }
+
+    .option-letter {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      color: #ffffff;
+      background: linear-gradient(135deg, #4f46e5, #ec4899);
+      flex-shrink: 0;
+    }
+
+    .option-text {
+      flex: 1;
+    }
+
+    .reveal-btn {
+      background: linear-gradient(135deg, #22c55e, #14b8a6);
+      color: #ffffff;
+      width: 100%;
+      text-align: center;
+      margin-top: 2px;
+    }
+
+    .answer-text {
+      margin-top: 4px;
+      font-size: 13px;
+      color: #166534;
+      display: none;
+      font-weight: 600;
+    }
+
+    .answer-text span {
+      font-weight: 800;
+    }
+
+    @media (max-width: 480px) {
+      .title {
+        font-size: 20px;
+      }
+      .question-text {
+        font-size: 14.5px;
+      }
+      .option {
+        font-size: 13.5px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <h1 class="title">సామాన్య అవగాహన — ఇంటరాక్టివ్ MCQ క్విజ్ (తెలుగు)</h1>
+    <div class="subtitle">
+      <strong>19 ప్రశ్నలు</strong> • Current Affairs · General Science · Polity · Geography
+    </div>
+
+    <!-- TOP CONTROLS -->
+    <div class="top-controls">
+      <button id="scoreBtn">మార్కులు గణించు</button>
+      <button id="revealAllBtn">అన్ని జవాబులు చూపించు</button>
+      <button id="resetBtn">రిసెట్</button>
+    </div>
+    <div id="scoreDisplay"></div>
+
+    <!-- ===== CURRENT AFFAIRS ===== -->
+    <div class="section-heading">Current Affairs</div>
+
+    <!-- Q1 -->
+    <div class="card" data-question="q1">
+      <div class="card-header">
+        <div class="q-badge">Q1</div>
+        <div class="category-pill">Current Affairs</div>
+      </div>
+      <div class="question-text">
+        భారత డిజిటల్ గుర్తింపు మౌలిక సదుపాయాలను బలపర్చడానికి ‘Aadhaar Vision 2032’ ఫ్రేమ్‌వర్క్‌ను ప్రారంభించిన సంస్థ ఏది?
+      </div>
+      <div class="options">
+        <label class="option">
+          <input type="radio" name="q1" value="A" />
+          <div class="option-letter">A</div>
+          <div class="option-text">NITI Aayog</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q1" value="B" />
+          <div class="option-letter">B</div>
+          <div class="option-text">UIDAI</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q1" value="C" />
+          <div class="option-letter">C</div>
+          <div class="option-text">MeitY</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q1" value="D" />
+          <div class="option-letter">D</div>
+          <div class="option-text">Digital India Corporation</div>
+        </label>
+      </div>
+      <button class="reveal-btn" data-question="q1">జవాబు చూడడానికి క్లిక్ చేయండి</button>
+      <div class="answer-text" data-answer-for="q1"></div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="card" data-question="q2">
+      <div class="card-header">
+        <div class="q-badge">Q2</div>
+        <div class="category-pill">Current Affairs</div>
+      </div>
+      <div class="question-text">
+        నౌకాదళ సహకారం మరియు సముద్ర భద్రతను బలపర్చడానికి ఉద్దేశించిన ప్రధాన కార్యక్రమం ‘Historic Maritime Convergence’ కు ఆతిథ్యం ఇవ్వడానికి భారత్ ఏ సంవత్సరానికి షెడ్యూల్ చేయబడింది?
+      </div>
+      <div class="options">
+        <label class="option">
+          <input type="radio" name="q2" value="A" />
+          <div class="option-letter">A</div>
+          <div class="option-text">2025</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q2" value="B" />
+          <div class="option-letter">B</div>
+          <div class="option-text">2024</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q2" value="C" />
+          <div class="option-letter">C</div>
+          <div class="option-text">2026</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q2" value="D" />
+          <div class="option-letter">D</div>
+          <div class="option-text">2027</div>
+        </label>
+      </div>
+      <button class="reveal-btn" data-question="q2">జవాబు చూడడానికి క్లిక్ చేయండి</button>
+      <div class="answer-text" data-answer-for="q2"></div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="card" data-question="q3">
+      <div class="card-header">
+        <div class="q-badge">Q3</div>
+        <div class="category-pill">Current Affairs</div>
+      </div>
+      <div class="question-text">
+        హైదరాబాద్‌లో నిర్వహించిన IndiaJoy 2025లో WAVES Bazaar‌ను ఎవరు ప్రారంభించారు?
+      </div>
+      <div class="options">
+        <label class="option">
+          <input type="radio" name="q3" value="A" />
+          <div class="option-letter">A</div>
+          <div class="option-text">Anurag Thakur</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q3" value="B" />
+          <div class="option-letter">B</div>
+          <div class="option-text">Sanjay Jaju</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q3" value="C" />
+          <div class="option-letter">C</div>
+          <div class="option-text">Apurva Chandra</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q3" value="D" />
+          <div class="option-letter">D</div>
+          <div class="option-text">Ashwini Vaishnaw</div>
+        </label>
+      </div>
+      <button class="reveal-btn" data-question="q3">జవాబు చూడడానికి క్లిక్ చేయండి</button>
+      <div class="answer-text" data-answer-for="q3"></div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="card" data-question="q4">
+      <div class="card-header">
+        <div class="q-badge">Q4</div>
+        <div class="category-pill">Current Affairs</div>
+      </div>
+      <div class="question-text">
+        భారత సైన్యం యొక్క Aviation Corps తన 40వ స్థాపన దినోత్సవాన్ని ఏ సంవత్సరంలో జరుపుకుంది?
+      </div>
+      <div class="options">
+        <label class="option">
+          <input type="radio" name="q4" value="A" />
+          <div class="option-letter">A</div>
+          <div class="option-text">2024</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q4" value="B" />
+          <div class="option-letter">B</div>
+          <div class="option-text">2022</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q4" value="C" />
+          <div class="option-letter">C</div>
+          <div class="option-text">2023</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q4" value="D" />
+          <div class="option-letter">D</div>
+          <div class="option-text">2025</div>
+        </label>
+      </div>
+      <button class="reveal-btn" data-question="q4">జవాబు చూడడానికి క్లిక్ చేయండి</button>
+      <div class="answer-text" data-answer-for="q4"></div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="card" data-question="q5">
+      <div class="card-header">
+        <div class="q-badge">Q5</div>
+        <div class="category-pill">Current Affairs</div>
+      </div>
+      <div class="question-text">
+        భారతదేశంలో సుస్థిర వ్యవసాయ పద్ధతులను ప్రోత్సహించేందుకు SMART-CROP ప్రాజెక్ట్‌ను ప్రారంభించిన సంస్థ ఏది?
+      </div>
+      <div class="options">
+        <label class="option">
+          <input type="radio" name="q5" value="A" />
+          <div class="option-letter">A</div>
+          <div class="option-text">NABARD</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q5" value="B" />
+          <div class="option-letter">B</div>
+          <div class="option-text">SBI Foundation</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q5" value="C" />
+          <div class="option-letter">C</div>
+          <div class="option-text">NITI Aayog</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q5" value="D" />
+          <div class="option-letter">D</div>
+          <div class="option-text">ICAR</div>
+        </label>
+      </div>
+      <button class="reveal-btn" data-question="q5">జవాబు చూడడానికి క్లిక్ చేయండి</button>
+      <div class="answer-text" data-answer-for="q5"></div>
+    </div>
+
+    <!-- Q6 -->
+    <div class="card" data-question="q6">
+      <div class="card-header">
+        <div class="q-badge">Q6</div>
+        <div class="category-pill">Current Affairs</div>
+      </div>
+      <div class="question-text">
+        భారత నౌకాదళం ఆదేశించిన స్వదేశీ సర్వే నౌక ‘Ikshak’ ఎక్కడ అధికారికంగా నౌకాదళంలో చేర్చబడింది?
+      </div>
+      <div class="options">
+        <label class="option">
+          <input type="radio" name="q6" value="A" />
+          <div class="option-letter">A</div>
+          <div class="option-text">Kochi</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q6" value="B" />
+          <div class="option-letter">B</div>
+          <div class="option-text">Visakhapatnam</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q6" value="C" />
+          <div class="option-letter">C</div>
+          <div class="option-text">Mumbai</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q6" value="D" />
+          <div class="option-letter">D</div>
+          <div class="option-text">Chennai</div>
+        </label>
+      </div>
+      <button class="reveal-btn" data-question="q6">జవాబు చూడడానికి క్లిక్ చేయండి</button>
+      <div class="answer-text" data-answer-for="q6"></div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="card" data-question="q7">
+      <div class="card-header">
+        <div class="q-badge">Q7</div>
+        <div class="category-pill">Current Affairs</div>
+      </div>
+      <div class="question-text">
+        రక్షణ మంత్రి Wladyslaw Kosiniak-Kamysz ప్రకారం, 6 నవంబర్ 2025న తన చరిత్రలోనే అతి పెద్ద రక్షణ శిక్షణ కార్యక్రమాన్ని ప్రారంభించిన దేశం ఏది?
+      </div>
+      <div class="options">
+        <label class="option">
+          <input type="radio" name="q7" value="A" />
+          <div class="option-letter">A</div>
+          <div class="option-text">Germany</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q7" value="B" />
+          <div class="option-letter">B</div>
+          <div class="option-text">Poland</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q7" value="C" />
+          <div class="option-letter">C</div>
+          <div class="option-text">France</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q7" value="D" />
+          <div class="option-letter">D</div>
+          <div class="option-text">Italy</div>
+        </label>
+      </div>
+      <button class="reveal-btn" data-question="q7">జవాబు చూడడానికి క్లిక్ చేయండి</button>
+      <div class="answer-text" data-answer-for="q7"></div>
+    </div>
+
+    <!-- Q8 -->
+    <div class="card" data-question="q8">
+      <div class="card-header">
+        <div class="q-badge">Q8</div>
+        <div class="category-pill">Current Affairs</div>
+      </div>
+      <div class="question-text">
+        థానే (మహారాష్ట్ర) జిల్లాను అధిగమించి, 2025 నాటికి భారతదేశంలో అత్యధిక జనాభా కలిగిన జిల్లా గా గుర్తించబడింది ఏ జిల్లా?
+      </div>
+      <div class="options">
+        <label class="option">
+          <input type="radio" name="q8" value="A" />
+          <div class="option-letter">A</div>
+          <div class="option-text">Patna (Bihar)</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q8" value="B" />
+          <div class="option-letter">B</div>
+          <div class="option-text">Jaipur (Rajasthan)</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q8" value="C" />
+          <div class="option-letter">C</div>
+          <div class="option-text">North 24 Parganas (West Bengal)</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q8" value="D" />
+          <div class="option-letter">D</div>
+          <div class="option-text">Lucknow (Uttar Pradesh)</div>
+        </label>
+      </div>
+      <button class="reveal-btn" data-question="q8">జవాబు చూడడానికి క్లిక్ చేయండి</button>
+      <div class="answer-text" data-answer-for="q8"></div>
+    </div>
+
+    <!-- ===== GENERAL SCIENCE ===== -->
+    <div class="section-heading">General Science</div>
+
+    <!-- Q9 -->
+    <div class="card" data-question="q9">
+      <div class="card-header">
+        <div class="q-badge">Q9</div>
+        <div class="category-pill">General Science</div>
+      </div>
+      <div class="question-text">
+        భూమి ఒక మహా అయస్కాంతంలా ప్రవర్తిస్తుందని, దాని అయస్కాంత క్షేత్ర రేఖలు క్షేత్ర బలాన్ని నిర్ణయిస్తాయని కనుగొన్న శాస్త్రవేత్త ఎవరు?
+      </div>
+      <div class="options">
+        <label class="option">
+          <input type="radio" name="q9" value="A" />
+          <div class="option-letter">A</div>
+          <div class="option-text">Michael Faraday</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q9" value="B" />
+          <div class="option-letter">B</div>
+          <div class="option-text">William Gilbert</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q9" value="C" />
+          <div class="option-letter">C</div>
+          <div class="option-text">Hans Christian Orsted</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q9" value="D" />
+          <div class="option-letter">D</div>
+          <div class="option-text">James Clerk Maxwell</div>
+        </label>
+      </div>
+      <button class="reveal-btn" data-question="q9">జవాబు చూడడానికి క్లిక్ చేయండి</button>
+      <div class="answer-text" data-answer-for="q9"></div>
+    </div>
+
+    <!-- Q10 -->
+    <div class="card" data-question="q10">
+      <div class="card-header">
+        <div class="q-badge">Q10</div>
+        <div class="category-pill">General Science</div>
+      </div>
+      <div class="question-text">
+        రింగ్ తగినంత పెద్దది కాని బ్రిడ్జ్‌డ్ రింగ్ వ్యవస్థలో బ్రిడ్జ్ హెడ్ స్థానంలో ద్విబంధం ఉండలదని ఏ సేంద్రీయ రసాయన నియమం పేర్కొంటుంది?
+      </div>
+      <div class="options">
+        <label class="option">
+          <input type="radio" name="q10" value="A" />
+          <div class="option-letter">A</div>
+          <div class="option-text">Bredt's Rule</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q10" value="B" />
+          <div class="option-letter">B</div>
+          <div class="option-text">Markovnikov's Rule</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q10" value="C" />
+          <div class="option-letter">C</div>
+          <div class="option-text">Saytzeff's Rule</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q10" value="D" />
+          <div class="option-letter">D</div>
+          <div class="option-text">Hund's Rule</div>
+        </label>
+      </div>
+      <button class="reveal-btn" data-question="q10">జవాబు చూడడానికి క్లిక్ చేయండి</button>
+      <div class="answer-text" data-answer-for="q10"></div>
+    </div>
+
+    <!-- Q11 -->
+    <div class="card" data-question="q11">
+      <div class="card-header">
+        <div class="q-badge">Q11</div>
+        <div class="category-pill">General Science</div>
+      </div>
+      <div class="question-text">
+        ఆంకరింగ్ మరియు ఆహారం తీసుకోవడానికి ఉపయోగించే hypostome అనే నిర్మాణం సాధారణంగా ఏ జీవుల గుంపులో కనిపిస్తుంది?
+      </div>
+      <div class="options">
+        <label class="option">
+          <input type="radio" name="q11" value="A" />
+          <div class="option-letter">A</div>
+          <div class="option-text">Annelids</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q11" value="B" />
+          <div class="option-letter">B</div>
+          <div class="option-text">Molluscs</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q11" value="C" />
+          <div class="option-letter">C</div>
+          <div class="option-text">Amphibians</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q11" value="D" />
+          <div class="option-letter">D</div>
+          <div class="option-text">Arthropods</div>
+        </label>
+      </div>
+      <button class="reveal-btn" data-question="q11">జవాబు చూడడానికి క్లిక్ చేయండి</button>
+      <div class="answer-text" data-answer-for="q11"></div>
+    </div>
+
+    <!-- Q12 -->
+    <div class="card" data-question="q12">
+      <div class="card-header">
+        <div class="q-badge">Q12</div>
+        <div class="category-pill">General Science</div>
+      </div>
+      <div class="question-text">
+        ఎంజైమ్ చర్యకు సహాయపడేలా కొవ్వులను చిన్న బిందువులుగా విభజించే ప్రక్రియను ఏమని పిలుస్తారు?
+      </div>
+      <div class="options">
+        <label class="option">
+          <input type="radio" name="q12" value="A" />
+          <div class="option-letter">A</div>
+          <div class="option-text">Saponification</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q12" value="B" />
+          <div class="option-letter">B</div>
+          <div class="option-text">Oxidation</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q12" value="C" />
+          <div class="option-letter">C</div>
+          <div class="option-text">Emulsification</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q12" value="D" />
+          <div class="option-letter">D</div>
+          <div class="option-text">Hydrolysis</div>
+        </label>
+      </div>
+      <button class="reveal-btn" data-question="q12">జవాబు చూడడానికి క్లిక్ చేయండి</button>
+      <div class="answer-text" data-answer-for="q12"></div>
+    </div>
+
+    <!-- ===== POLITY ===== -->
+    <div class="section-heading">Polity</div>
+
+    <!-- Q13 -->
+    <div class="card" data-question="q13">
+      <div class="card-header">
+        <div class="q-badge">Q13</div>
+        <div class="category-pill">Polity</div>
+      </div>
+      <div class="question-text">
+        స్థానిక ప్రభుత్వ సంస్థలకు నిర్వచిత విధులు, ఆర్థిక మద్దతు మరియు నియమిత ఎన్నికలను నిర్ధారించేందుకు రాజ్యాంగ సవరణ అవసరమని సిఫార్సు చేసిన కమిటీ ఏది?
+      </div>
+      <div class="options">
+        <label class="option">
+          <input type="radio" name="q13" value="A" />
+          <div class="option-letter">A</div>
+          <div class="option-text">Balwant Rai Mehta Committee</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q13" value="B" />
+          <div class="option-letter">B</div>
+          <div class="option-text">P.K. Thungan Committee</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q13" value="C" />
+          <div class="option-letter">C</div>
+          <div class="option-text">Ashok Mehta Committee</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q13" value="D" />
+          <div class="option-letter">D</div>
+          <div class="option-text">G.V.K. Rao Committee</div>
+        </label>
+      </div>
+      <button class="reveal-btn" data-question="q13">జవాబు చూడడానికి క్లిక్ చేయండి</button>
+      <div class="answer-text" data-answer-for="q13"></div>
+    </div>
+
+    <!-- Q14 -->
+    <div class="card" data-question="q14">
+      <div class="card-header">
+        <div class="q-badge">Q14</div>
+        <div class="category-pill">Polity</div>
+      </div>
+      <div class="question-text">
+        1861 నాటి Indian High Courts Act ద్వారా ఏ మూడు నగరాల్లో ఉన్న హై కోర్టులు స్థాపించబడ్డాయి?
+      </div>
+      <div class="options">
+        <label class="option">
+          <input type="radio" name="q14" value="A" />
+          <div class="option-letter">A</div>
+          <div class="option-text">Delhi, Calcutta, and Mumbai</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q14" value="B" />
+          <div class="option-letter">B</div>
+          <div class="option-text">Chennai, Patna, and Allahabad</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q14" value="C" />
+          <div class="option-letter">C</div>
+          <div class="option-text">Hyderabad, Kolkata, and Agra</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q14" value="D" />
+          <div class="option-letter">D</div>
+          <div class="option-text">Calcutta, Madras, and Bombay</div>
+        </label>
+      </div>
+      <button class="reveal-btn" data-question="q14">జవాబు చూడడానికి క్లిక్ చేయండి</button>
+      <div class="answer-text" data-answer-for="q14"></div>
+    </div>
+
+    <!-- Q15 -->
+    <div class="card" data-question="q15">
+      <div class="card-header">
+        <div class="q-badge">Q15</div>
+        <div class="category-pill">Polity</div>
+      </div>
+      <div class="question-text">
+        రాష్ట్ర శాసనసభలలో షెడ్యూల్డ్ కాస్ట్స్ (SCs), షెడ్యూల్డ్ ట్రైబ్స్ (STs) కి సీట్ల రిజర్వేషన్‌ను ఏ రాజ్యాంగ ఆర్టికల్‌లో ప్రస్తావించారు?
+      </div>
+      <div class="options">
+        <label class="option">
+          <input type="radio" name="q15" value="A" />
+          <div class="option-letter">A</div>
+          <div class="option-text">Article 330</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q15" value="B" />
+          <div class="option-letter">B</div>
+          <div class="option-text">Article 331</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q15" value="C" />
+          <div class="option-letter">C</div>
+          <div class="option-text">Article 332</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q15" value="D" />
+          <div class="option-letter">D</div>
+          <div class="option-text">Article 333</div>
+        </label>
+      </div>
+      <button class="reveal-btn" data-question="q15">జవాబు చూడడానికి క్లిక్ చేయండి</button>
+      <div class="answer-text" data-answer-for="q15"></div>
+    </div>
+
+    <!-- ===== GEOGRAPHY ===== -->
+    <div class="section-heading">Geography</div>
+
+    <!-- Q16 -->
+    <div class="card" data-question="q16">
+      <div class="card-header">
+        <div class="q-badge">Q16</div>
+        <div class="category-pill">Geography</div>
+      </div>
+      <div class="question-text">
+        భారతదేశంలోని సహకార సంఘాలకు (co-operative societies) ప్రత్యేక రాజ్యాంగ హోదా, రక్షణ ఇవ్వడానికి Part IX-B ని జోడించిన రాజ్యాంగ సవరణ ఏది?
+      </div>
+      <div class="options">
+        <label class="option">
+          <input type="radio" name="q16" value="A" />
+          <div class="option-letter">A</div>
+          <div class="option-text">91st Amendment Act, 2003</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q16" value="B" />
+          <div class="option-letter">B</div>
+          <div class="option-text">94th Amendment Act, 2006</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q16" value="C" />
+          <div class="option-letter">C</div>
+          <div class="option-text">97th Amendment Act, 2011</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q16" value="D" />
+          <div class="option-letter">D</div>
+          <div class="option-text">100th Amendment Act, 2015</div>
+        </label>
+      </div>
+      <button class="reveal-btn" data-question="q16">జవాబు చూడడానికి క్లిక్ చేయండి</button>
+      <div class="answer-text" data-answer-for="q16"></div>
+    </div>
+
+    <!-- Q17 -->
+    <div class="card" data-question="q17">
+      <div class="card-header">
+        <div class="q-badge">Q17</div>
+        <div class="category-pill">Geography</div>
+      </div>
+      <div class="question-text">
+        భారతదేశంలో గ్రీన్ రేవల్యూషన్ ప్రారంభించడంలో ప్రధాన లక్ష్యం ఏమిటి?
+      </div>
+      <div class="options">
+        <label class="option">
+          <input type="radio" name="q17" value="A" />
+          <div class="option-letter">A</div>
+          <div class="option-text">సేంద్రియ వ్యవసాయాన్ని ప్రోత్సహించడం</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q17" value="B" />
+          <div class="option-letter">B</div>
+          <div class="option-text">పారిశ్రామిక ఉత్పత్తిని పెంచడం</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q17" value="C" />
+          <div class="option-letter">C</div>
+          <div class="option-text">నగదు పంటల సాగును ప్రోత్సహించడం</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q17" value="D" />
+          <div class="option-letter">D</div>
+          <div class="option-text">ఆహార ధాన్యాలలో స్వయం సమృద్ధి సాధించడం</div>
+        </label>
+      </div>
+      <button class="reveal-btn" data-question="q17">జవాబు చూడడానికి క్లిక్ చేయండి</button>
+      <div class="answer-text" data-answer-for="q17"></div>
+    </div>
+
+    <!-- Q18 -->
+    <div class="card" data-question="q18">
+      <div class="card-header">
+        <div class="q-badge">Q18</div>
+        <div class="category-pill">Geography</div>
+      </div>
+      <div class="question-text">
+        “Arboriculture” అనే పదం దేనిని సూచిస్తుంది?
+      </div>
+      <div class="options">
+        <label class="option">
+          <input type="radio" name="q18" value="A" />
+          <div class="option-letter">A</div>
+          <div class="option-text">
+            నీడ, అలంకరణ కోసం చెట్లు, పొదలు, వుడ్ మొక్కలను పెంచడం
+          </div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q18" value="B" />
+          <div class="option-letter">B</div>
+          <div class="option-text">మట్టి, పంట నిర్వహణ సాంకేతికతల అధ్యయనం</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q18" value="C" />
+          <div class="option-letter">C</div>
+          <div class="option-text">సుగంధ ఔషధ మొక్కల సాగు</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q18" value="D" />
+          <div class="option-letter">D</div>
+          <div class="option-text">పండ్ల ఉత్పత్తి, తోటల నిర్వహణపై శాస్త్రం</div>
+        </label>
+      </div>
+      <button class="reveal-btn" data-question="q18">జవాబు చూడడానికి క్లిక్ చేయండి</button>
+      <div class="answer-text" data-answer-for="q18"></div>
+    </div>
+
+    <!-- Q19 -->
+    <div class="card" data-question="q19">
+      <div class="card-header">
+        <div class="q-badge">Q19</div>
+        <div class="category-pill">Geography</div>
+      </div>
+      <div class="question-text">
+        జనాభా పెరుగుదల రేటు తగ్గడం వల్ల “Year of Great Demographic Divide” గా పిలువబడే సంవత్సరం భారత జనాభా చరిత్రలో ఏది?
+      </div>
+      <div class="options">
+        <label class="option">
+          <input type="radio" name="q19" value="A" />
+          <div class="option-letter">A</div>
+          <div class="option-text">1911</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q19" value="B" />
+          <div class="option-letter">B</div>
+          <div class="option-text">1921</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q19" value="C" />
+          <div class="option-letter">C</div>
+          <div class="option-text">1931</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q19" value="D" />
+          <div class="option-letter">D</div>
+          <div class="option-text">1941</div>
+        </label>
+      </div>
+      <button class="reveal-btn" data-question="q19">జవాబు చూడడానికి క్లిక్ చేయండి</button>
+      <div class="answer-text" data-answer-for="q19"></div>
+    </div>
+  </div>
+
+  <script>
+    const answerKey = {
+      q1: "B",
+      q2: "C",
+      q3: "B",
+      q4: "D",
+      q5: "B",
+      q6: "A",
+      q7: "B",
+      q8: "C",
+      q9: "B",
+      q10: "A",
+      q11: "D",
+      q12: "C",
+      q13: "B",
+      q14: "D",
+      q15: "C",
+      q16: "C",
+      q17: "D",
+      q18: "A",
+      q19: "B",
+    };
+
+    document.addEventListener("DOMContentLoaded", function () {
+      // Fill answer text in Telugu
+      for (const q in answerKey) {
+        const box = document.querySelector(
+          '.answer-text[data-answer-for="' + q + '"]'
+        );
+        if (box) {
+          box.innerHTML = "సరైన జవాబు: <span>" + answerKey[q] + "</span>";
+        }
+      }
+
+      // Per-question reveal button
+      document.querySelectorAll(".reveal-btn").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          const q = btn.getAttribute("data-question");
+          const answerBox = document.querySelector(
+            '.answer-text[data-answer-for="' + q + '"]'
+          );
+          if (!answerBox) return;
+
+          const visible = answerBox.style.display === "block";
+          answerBox.style.display = visible ? "none" : "block";
+          btn.textContent = visible
+            ? "జవాబు చూడడానికి క్లిక్ చేయండి"
+            : "జవాబు దాచు";
+        });
+      });
+
+      // Calculate score
+      document
+        .getElementById("scoreBtn")
+        .addEventListener("click", function () {
+          let score = 0;
+
+          document.querySelectorAll(".card").forEach(function (card) {
+            card.classList.remove("correct", "incorrect");
+          });
+
+          for (const q in answerKey) {
+            const options = document.querySelectorAll('input[name="' + q + '"]');
+            let selected = null;
+            options.forEach(function (opt) {
+              if (opt.checked) selected = opt.value;
+            });
+
+            const card = document.querySelector('.card[data-question="' + q + '"]');
+            if (!card) continue;
+
+            if (selected === answerKey[q]) {
+              score++;
+              card.classList.add("correct");
+            } else if (selected !== null) {
+              card.classList.add("incorrect");
+            }
+          }
+
+          document.getElementById("scoreDisplay").textContent =
+            "మీ స్కోరు: " + score + " / 19";
+        });
+
+      // Reveal all / hide all
+      let allVisible = false;
+      document
+        .getElementById("revealAllBtn")
+        .addEventListener("click", function () {
+          allVisible = !allVisible;
+          document.querySelectorAll(".answer-text").forEach(function (box) {
+            box.style.display = allVisible ? "block" : "none";
+          });
+          document.querySelectorAll(".reveal-btn").forEach(function (btn) {
+            btn.textContent = allVisible
+              ? "జవాబు దాచు"
+              : "జవాబు చూడడానికి క్లిక్ చేయండి";
+          });
+          this.textContent = allVisible
+            ? "అన్ని జవాబులు దాచు"
+            : "అన్ని జవాబులు చూపించు";
+        });
+
+      // Reset quiz
+      document
+        .getElementById("resetBtn")
+        .addEventListener("click", function () {
+          document
+            .querySelectorAll('input[type="radio"]')
+            .forEach(function (r) {
+              r.checked = false;
+            });
+          document.querySelectorAll(".card").forEach(function (card) {
+            card.classList.remove("correct", "incorrect");
+          });
+          document.querySelectorAll(".answer-text").forEach(function (box) {
+            box.style.display = "none";
+          });
+          document.querySelectorAll(".reveal-btn").forEach(function (btn) {
+            btn.textContent = "జవాబు చూడడానికి క్లిక్ చేయండి";
+          });
+          document.getElementById("scoreDisplay").textContent = "";
+          document.getElementById("revealAllBtn").textContent =
+            "అన్ని జవాబులు చూపించు";
+          allVisible = false;
+        });
+    });
+  </script>
+</body>
+</html>
