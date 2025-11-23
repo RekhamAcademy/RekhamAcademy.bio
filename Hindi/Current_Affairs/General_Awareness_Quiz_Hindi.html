@@ -1,0 +1,1061 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>सामान्य जागरूकता — इंटरेक्टिव MCQ क्विज़ (हिंदी)</title>
+  <style>
+    :root {
+      --bg-soft: #eef3ff;
+      --card-bg: #ffffff;
+      --primary: #4f46e5;
+      --primary-soft: #6366f1;
+      --accent: #f97316;
+      --accent-soft: #fb923c;
+      --success: #16a34a;
+      --danger: #dc2626;
+      --pill-radius: 999px;
+      --card-radius: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: radial-gradient(circle at top left, #e0f2fe 0, #eef3ff 40%, #fdf2ff 100%);
+      color: #111827;
+    }
+
+    .page {
+      max-width: 520px;
+      margin: 10px auto 24px;
+      padding: 10px 10px 24px;
+    }
+
+    .title {
+      text-align: center;
+      font-size: 22px;
+      font-weight: 800;
+      margin: 4px 0 4px;
+      background: linear-gradient(90deg, #4f46e5, #ec4899);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 13px;
+      margin-bottom: 10px;
+      color: #4b5563;
+    }
+
+    .subtitle strong {
+      color: #111827;
+    }
+
+    .top-controls {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    button {
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 13px;
+      padding: 7px 16px;
+      border-radius: var(--pill-radius);
+      transition: transform 0.08s ease, box-shadow 0.08s ease, opacity 0.1s;
+      white-space: nowrap;
+    }
+
+    button:active {
+      transform: scale(0.97);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.18);
+    }
+
+    #scoreBtn {
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: #ffffff;
+    }
+
+    #revealAllBtn {
+      background: linear-gradient(135deg, #f97316, #ec4899);
+      color: #ffffff;
+    }
+
+    #resetBtn {
+      background: #e5e7eb;
+      color: #111827;
+    }
+
+    #scoreDisplay {
+      text-align: center;
+      margin-top: 6px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #1e40af;
+    }
+
+    .section-heading {
+      margin: 18px 0 8px;
+      font-size: 15px;
+      font-weight: 700;
+      color: #374151;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--card-radius);
+      padding: 10px 12px 12px;
+      margin-bottom: 10px;
+      box-shadow: 0 3px 12px rgba(15, 23, 42, 0.12);
+    }
+
+    .card.correct {
+      box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.4);
+    }
+
+    .card.incorrect {
+      box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.4);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+      gap: 6px;
+    }
+
+    .q-badge {
+      padding: 4px 10px;
+      border-radius: var(--pill-radius);
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .category-pill {
+      padding: 3px 10px;
+      border-radius: var(--pill-radius);
+      background: #dcfce7;
+      color: #166534;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .question-text {
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.25;
+      margin-bottom: 6px;
+      color: #111827;
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+
+    .option {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 9px;
+      border-radius: 999px;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      font-size: 14px;
+    }
+
+    .option input {
+      margin: 0;
+    }
+
+    .option-letter {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      color: #ffffff;
+      background: linear-gradient(135deg, #4f46e5, #ec4899);
+      flex-shrink: 0;
+    }
+
+    .option-text {
+      flex: 1;
+    }
+
+    .reveal-btn {
+      background: linear-gradient(135deg, #22c55e, #14b8a6);
+      color: #ffffff;
+      width: 100%;
+      text-align: center;
+      margin-top: 2px;
+    }
+
+    .answer-text {
+      margin-top: 4px;
+      font-size: 13px;
+      color: #166534;
+      display: none;
+      font-weight: 600;
+    }
+
+    .answer-text span {
+      font-weight: 800;
+    }
+
+    @media (max-width: 480px) {
+      .title {
+        font-size: 20px;
+      }
+      .question-text {
+        font-size: 14.5px;
+      }
+      .option {
+        font-size: 13.5px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <h1 class="title">सामान्य जागरूकता — इंटरेक्टिव MCQ क्विज़ (हिंदी)</h1>
+    <div class="subtitle">
+      <strong>19 प्रश्न</strong> • Current Affairs · General Science · Polity · Geography
+    </div>
+
+    <!-- TOP CONTROLS -->
+    <div class="top-controls">
+      <button id="scoreBtn">स्कोर गणना करें</button>
+      <button id="revealAllBtn">सभी उत्तर दिखाएँ</button>
+      <button id="resetBtn">रीसेट</button>
+    </div>
+    <div id="scoreDisplay"></div>
+
+    <!-- ===== CURRENT AFFAIRS ===== -->
+    <div class="section-heading">Current Affairs</div>
+
+    <!-- Q1 -->
+    <div class="card" data-question="q1">
+      <div class="card-header">
+        <div class="q-badge">Q1</div>
+        <div class="category-pill">Current Affairs</div>
+      </div>
+      <div class="question-text">
+        भारत की डिजिटल पहचान अवसंरचना को मज़बूत करने के लिए ‘Aadhaar Vision 2032’ फ़्रेमवर्क किस संगठन ने शुरू किया है?
+      </div>
+      <div class="options">
+        <label class="option">
+          <input type="radio" name="q1" value="A" />
+          <div class="option-letter">A</div>
+          <div class="option-text">NITI Aayog</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q1" value="B" />
+          <div class="option-letter">B</div>
+          <div class="option-text">UIDAI</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q1" value="C" />
+          <div class="option-letter">C</div>
+          <div class="option-text">MeitY</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q1" value="D" />
+          <div class="option-letter">D</div>
+          <div class="option-text">Digital India Corporation</div>
+        </label>
+      </div>
+      <button class="reveal-btn" data-question="q1">उत्तर देखने के लिए क्लिक करें</button>
+      <div class="answer-text" data-answer-for="q1"></div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="card" data-question="q2">
+      <div class="card-header">
+        <div class="q-badge">Q2</div>
+        <div class="category-pill">Current Affairs</div>
+      </div>
+      <div class="question-text">
+        नौसैनिक सहयोग और समुद्री सुरक्षा को मज़बूत करने वाले प्रमुख कार्यक्रम ‘Historic Maritime Convergence’ की मेज़बानी भारत किस वर्ष करने वाला है?
+      </div>
+      <div class="options">
+        <label class="option">
+          <input type="radio" name="q2" value="A" />
+          <div class="option-letter">A</div>
+          <div class="option-text">2025</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q2" value="B" />
+          <div class="option-letter">B</div>
+          <div class="option-text">2024</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q2" value="C" />
+          <div class="option-letter">C</div>
+          <div class="option-text">2026</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q2" value="D" />
+          <div class="option-letter">D</div>
+          <div class="option-text">2027</div>
+        </label>
+      </div>
+      <button class="reveal-btn" data-question="q2">उत्तर देखने के लिए क्लिक करें</button>
+      <div class="answer-text" data-answer-for="q2"></div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="card" data-question="q3">
+      <div class="card-header">
+        <div class="q-badge">Q3</div>
+        <div class="category-pill">Current Affairs</div>
+      </div>
+      <div class="question-text">
+        हैदराबाद में आयोजित IndiaJoy 2025 में WAVES Bazaar का उद्घाटन किसने किया?
+      </div>
+      <div class="options">
+        <label class="option">
+          <input type="radio" name="q3" value="A" />
+          <div class="option-letter">A</div>
+          <div class="option-text">Anurag Thakur</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q3" value="B" />
+          <div class="option-letter">B</div>
+          <div class="option-text">Sanjay Jaju</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q3" value="C" />
+          <div class="option-letter">C</div>
+          <div class="option-text">Apurva Chandra</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q3" value="D" />
+          <div class="option-letter">D</div>
+          <div class="option-text">Ashwini Vaishnaw</div>
+        </label>
+      </div>
+      <button class="reveal-btn" data-question="q3">उत्तर देखने के लिए क्लिक करें</button>
+      <div class="answer-text" data-answer-for="q3"></div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="card" data-question="q4">
+      <div class="card-header">
+        <div class="q-badge">Q4</div>
+        <div class="category-pill">Current Affairs</div>
+      </div>
+      <div class="question-text">
+        भारतीय सेना के Aviation Corps ने अपना 40वाँ स्थापना दिवस किस वर्ष मनाया?
+      </div>
+      <div class="options">
+        <label class="option">
+          <input type="radio" name="q4" value="A" />
+          <div class="option-letter">A</div>
+          <div class="option-text">2024</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q4" value="B" />
+          <div class="option-letter">B</div>
+          <div class="option-text">2022</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q4" value="C" />
+          <div class="option-letter">C</div>
+          <div class="option-text">2023</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q4" value="D" />
+          <div class="option-letter">D</div>
+          <div class="option-text">2025</div>
+        </label>
+      </div>
+      <button class="reveal-btn" data-question="q4">उत्तर देखने के लिए क्लिक करें</button>
+      <div class="answer-text" data-answer-for="q4"></div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="card" data-question="q5">
+      <div class="card-header">
+        <div class="q-badge">Q5</div>
+        <div class="category-pill">Current Affairs</div>
+      </div>
+      <div class="question-text">
+        भारत में टिकाऊ कृषि पद्धतियों को बढ़ावा देने के लिए SMART-CROP परियोजना किस संगठन ने शुरू की है?
+      </div>
+      <div class="options">
+        <label class="option">
+          <input type="radio" name="q5" value="A" />
+          <div class="option-letter">A</div>
+          <div class="option-text">NABARD</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q5" value="B" />
+          <div class="option-letter">B</div>
+          <div class="option-text">SBI Foundation</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q5" value="C" />
+          <div class="option-letter">C</div>
+          <div class="option-text">NITI Aayog</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q5" value="D" />
+          <div class="option-letter">D</div>
+          <div class="option-text">ICAR</div>
+        </label>
+      </div>
+      <button class="reveal-btn" data-question="q5">उत्तर देखने के लिए क्लिक करें</button>
+      <div class="answer-text" data-answer-for="q5"></div>
+    </div>
+
+    <!-- Q6 -->
+    <div class="card" data-question="q6">
+      <div class="card-header">
+        <div class="q-badge">Q6</div>
+        <div class="category-pill">Current Affairs</div>
+      </div>
+      <div class="question-text">
+        भारतीय नौसेना की स्वदेशी सर्वे जहाज़ ‘Ikshak’ को आधिकारिक रूप से कहाँ सम्मिलित किया गया?
+      </div>
+      <div class="options">
+        <label class="option">
+          <input type="radio" name="q6" value="A" />
+          <div class="option-letter">A</div>
+          <div class="option-text">Kochi</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q6" value="B" />
+          <div class="option-letter">B</div>
+          <div class="option-text">Visakhapatnam</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q6" value="C" />
+          <div class="option-letter">C</div>
+          <div class="option-text">Mumbai</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q6" value="D" />
+          <div class="option-letter">D</div>
+          <div class="option-text">Chennai</div>
+        </label>
+      </div>
+      <button class="reveal-btn" data-question="q6">उत्तर देखने के लिए क्लिक करें</button>
+      <div class="answer-text" data-answer-for="q6"></div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="card" data-question="q7">
+      <div class="card-header">
+        <div class="q-badge">Q7</div>
+        <div class="category-pill">Current Affairs</div>
+      </div>
+      <div class="question-text">
+        रक्षा मंत्री Wladyslaw Kosiniak-Kamysz के अनुसार, 6 नवंबर 2025 को अपने इतिहास के सबसे बड़े रक्षा प्रशिक्षण अभियान की शुरुआत किस देश ने की?
+      </div>
+      <div class="options">
+        <label class="option">
+          <input type="radio" name="q7" value="A" />
+          <div class="option-letter">A</div>
+          <div class="option-text">Germany</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q7" value="B" />
+          <div class="option-letter">B</div>
+          <div class="option-text">Poland</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q7" value="C" />
+          <div class="option-letter">C</div>
+          <div class="option-text">France</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q7" value="D" />
+          <div class="option-letter">D</div>
+          <div class="option-text">Italy</div>
+        </label>
+      </div>
+      <button class="reveal-btn" data-question="q7">उत्तर देखने के लिए क्लिक करें</button>
+      <div class="answer-text" data-answer-for="q7"></div>
+    </div>
+
+    <!-- Q8 -->
+    <div class="card" data-question="q8">
+      <div class="card-header">
+        <div class="q-badge">Q8</div>
+        <div class="category-pill">Current Affairs</div>
+      </div>
+      <div class="question-text">
+        थाणे (महाराष्ट्र) को पीछे छोड़ते हुए, 2025 तक भारत का सबसे अधिक जनसंख्या वाला जिला आधिकारिक रूप से कौन सा बना?
+      </div>
+      <div class="options">
+        <label class="option">
+          <input type="radio" name="q8" value="A" />
+          <div class="option-letter">A</div>
+          <div class="option-text">Patna (Bihar)</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q8" value="B" />
+          <div class="option-letter">B</div>
+          <div class="option-text">Jaipur (Rajasthan)</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q8" value="C" />
+          <div class="option-letter">C</div>
+          <div class="option-text">North 24 Parganas (West Bengal)</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q8" value="D" />
+          <div class="option-letter">D</div>
+          <div class="option-text">Lucknow (Uttar Pradesh)</div>
+        </label>
+      </div>
+      <button class="reveal-btn" data-question="q8">उत्तर देखने के लिए क्लिक करें</button>
+      <div class="answer-text" data-answer-for="q8"></div>
+    </div>
+
+    <!-- ===== GENERAL SCIENCE ===== -->
+    <div class="section-heading">General Science</div>
+
+    <!-- Q9 -->
+    <div class="card" data-question="q9">
+      <div class="card-header">
+        <div class="q-badge">Q9</div>
+        <div class="category-pill">General Science</div>
+      </div>
+      <div class="question-text">
+        यह खोज किस वैज्ञानिक ने की कि पृथ्वी एक विशाल चुम्बक की तरह व्यवहार करती है और उसकी चुम्बकीय क्षेत्र रेखाएँ क्षेत्र की तीव्रता निर्धारित करती हैं?
+      </div>
+      <div class="options">
+        <label class="option">
+          <input type="radio" name="q9" value="A" />
+          <div class="option-letter">A</div>
+          <div class="option-text">Michael Faraday</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q9" value="B" />
+          <div class="option-letter">B</div>
+          <div class="option-text">William Gilbert</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q9" value="C" />
+          <div class="option-letter">C</div>
+          <div class="option-text">Hans Christian Orsted</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q9" value="D" />
+          <div class="option-letter">D</div>
+          <div class="option-text">James Clerk Maxwell</div>
+        </label>
+      </div>
+      <button class="reveal-btn" data-question="q9">उत्तर देखने के लिए क्लिक करें</button>
+      <div class="answer-text" data-answer-for="q9"></div>
+    </div>
+
+    <!-- Q10 -->
+    <div class="card" data-question="q10">
+      <div class="card-header">
+        <div class="q-badge">Q10</div>
+        <div class="category-pill">General Science</div>
+      </div>
+      <div class="question-text">
+        कार्बनिक रसायन का कौन-सा नियम यह कहता है कि यदि रिंग पर्याप्त बड़ी न हो तो ब्रिज्ड रिंग प्रणाली में ब्रिज-हेड स्थित पर दोहरा बंध (double bond) नहीं हो सकता?
+      </div>
+      <div class="options">
+        <label class="option">
+          <input type="radio" name="q10" value="A" />
+          <div class="option-letter">A</div>
+          <div class="option-text">Bredt's Rule</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q10" value="B" />
+          <div class="option-letter">B</div>
+          <div class="option-text">Markovnikov's Rule</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q10" value="C" />
+          <div class="option-letter">C</div>
+          <div class="option-text">Saytzeff's Rule</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q10" value="D" />
+          <div class="option-letter">D</div>
+          <div class="option-text">Hund's Rule</div>
+        </label>
+      </div>
+      <button class="reveal-btn" data-question="q10">उत्तर देखने के लिए क्लिक करें</button>
+      <div class="answer-text" data-answer-for="q10"></div>
+    </div>
+
+    <!-- Q11 -->
+    <div class="card" data-question="q11">
+      <div class="card-header">
+        <div class="q-badge">Q11</div>
+        <div class="category-pill">General Science</div>
+      </div>
+      <div class="question-text">
+        किस जीव समूह में hypostome नामक संरचना (जो शरीर को स्थिर रखने और भोजन ग्रहण करने के लिए प्रयोग होती है) सामान्यतः पाई जाती है?
+      </div>
+      <div class="options">
+        <label class="option">
+          <input type="radio" name="q11" value="A" />
+          <div class="option-letter">A</div>
+          <div class="option-text">Annelids</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q11" value="B" />
+          <div class="option-letter">B</div>
+          <div class="option-text">Molluscs</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q11" value="C" />
+          <div class="option-letter">C</div>
+          <div class="option-text">Amphibians</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q11" value="D" />
+          <div class="option-letter">D</div>
+          <div class="option-text">Arthropods</div>
+        </label>
+      </div>
+      <button class="reveal-btn" data-question="q11">उत्तर देखने के लिए क्लिक करें</button>
+      <div class="answer-text" data-answer-for="q11"></div>
+    </div>
+
+    <!-- Q12 -->
+    <div class="card" data-question="q12">
+      <div class="card-header">
+        <div class="q-badge">Q12</div>
+        <div class="category-pill">General Science</div>
+      </div>
+      <div class="question-text">
+        पाचन के दौरान वसा (fats) को छोटे-छोटे बिंदुओं में तोड़कर एंज़ाइम की क्रिया को आसान बनाने की प्रक्रिया को क्या कहा जाता है?
+      </div>
+      <div class="options">
+        <label class="option">
+          <input type="radio" name="q12" value="A" />
+          <div class="option-letter">A</div>
+          <div class="option-text">Saponification</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q12" value="B" />
+          <div class="option-letter">B</div>
+          <div class="option-text">Oxidation</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q12" value="C" />
+          <div class="option-letter">C</div>
+          <div class="option-text">Emulsification</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q12" value="D" />
+          <div class="option-letter">D</div>
+          <div class="option-text">Hydrolysis</div>
+        </label>
+      </div>
+      <button class="reveal-btn" data-question="q12">उत्तर देखने के लिए क्लिक करें</button>
+      <div class="answer-text" data-answer-for="q12"></div>
+    </div>
+
+    <!-- ===== POLITY ===== -->
+    <div class="section-heading">Polity</div>
+
+    <!-- Q13 -->
+    <div class="card" data-question="q13">
+      <div class="card-header">
+        <div class="q-badge">Q13</div>
+        <div class="category-pill">Polity</div>
+      </div>
+      <div class="question-text">
+        स्थानीय निकाय संस्थाओं के लिए नियमित चुनाव, निश्चित कार्य और वित्तीय सहायता सुनिश्चित करने हेतु संवैधानिक संशोधन की सिफारिश किस समिति ने की थी?
+      </div>
+      <div class="options">
+        <label class="option">
+          <input type="radio" name="q13" value="A" />
+          <div class="option-letter">A</div>
+          <div class="option-text">Balwant Rai Mehta Committee</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q13" value="B" />
+          <div class="option-letter">B</div>
+          <div class="option-text">P.K. Thungan Committee</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q13" value="C" />
+          <div class="option-letter">C</div>
+          <div class="option-text">Ashok Mehta Committee</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q13" value="D" />
+          <div class="option-letter">D</div>
+          <div class="option-text">G.V.K. Rao Committee</div>
+        </label>
+      </div>
+      <button class="reveal-btn" data-question="q13">उत्तर देखने के लिए क्लिक करें</button>
+      <div class="answer-text" data-answer-for="q13"></div>
+    </div>
+
+    <!-- Q14 -->
+    <div class="card" data-question="q14">
+      <div class="card-header">
+        <div class="q-badge">Q14</div>
+        <div class="category-pill">Polity</div>
+      </div>
+      <div class="question-text">
+        1861 के Indian High Courts Act के तहत किन तीन शहरों में उच्च न्यायालयों की स्थापना की गई?
+      </div>
+      <div class="options">
+        <label class="option">
+          <input type="radio" name="q14" value="A" />
+          <div class="option-letter">A</div>
+          <div class="option-text">Delhi, Calcutta, and Mumbai</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q14" value="B" />
+          <div class="option-letter">B</div>
+          <div class="option-text">Chennai, Patna, and Allahabad</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q14" value="C" />
+          <div class="option-letter">C</div>
+          <div class="option-text">Hyderabad, Kolkata, and Agra</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q14" value="D" />
+          <div class="option-letter">D</div>
+          <div class="option-text">Calcutta, Madras, and Bombay</div>
+        </label>
+      </div>
+      <button class="reveal-btn" data-question="q14">उत्तर देखने के लिए क्लिक करें</button>
+      <div class="answer-text" data-answer-for="q14"></div>
+    </div>
+
+    <!-- Q15 -->
+    <div class="card" data-question="q15">
+      <div class="card-header">
+        <div class="q-badge">Q15</div>
+        <div class="category-pill">Polity</div>
+      </div>
+      <div class="question-text">
+        राज्य विधानसभाओं में अनुसूचित जातियों (SCs) और अनुसूचित जनजातियों (STs) के लिए सीटों के आरक्षण का प्रावधान भारतीय संविधान के किस अनुच्छेद में है?
+      </div>
+      <div class="options">
+        <label class="option">
+          <input type="radio" name="q15" value="A" />
+          <div class="option-letter">A</div>
+          <div class="option-text">Article 330</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q15" value="B" />
+          <div class="option-letter">B</div>
+          <div class="option-text">Article 331</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q15" value="C" />
+          <div class="option-letter">C</div>
+          <div class="option-text">Article 332</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q15" value="D" />
+          <div class="option-letter">D</div>
+          <div class="option-text">Article 333</div>
+        </label>
+      </div>
+      <button class="reveal-btn" data-question="q15">उत्तर देखने के लिए क्लिक करें</button>
+      <div class="answer-text" data-answer-for="q15"></div>
+    </div>
+
+    <!-- Q16 -->
+    <div class="card" data-question="q16">
+      <div class="card-header">
+        <div class="q-badge">Q16</div>
+        <div class="category-pill">Polity</div>
+      </div>
+      <div class="question-text">
+        भारत में सभी सहकारी समितियों (co-operative societies) को भाग IX-B के अंतर्गत विशेष संवैधानिक दर्जा और सुरक्षा प्रदान करने वाला कौन‑सा संवैधानिक संशोधन है?
+      </div>
+      <div class="options">
+        <label class="option">
+          <input type="radio" name="q16" value="A" />
+          <div class="option-letter">A</div>
+          <div class="option-text">91st Amendment Act, 2003</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q16" value="B" />
+          <div class="option-letter">B</div>
+          <div class="option-text">94th Amendment Act, 2006</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q16" value="C" />
+          <div class="option-letter">C</div>
+          <div class="option-text">97th Amendment Act, 2011</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q16" value="D" />
+          <div class="option-letter">D</div>
+          <div class="option-text">100th Amendment Act, 2015</div>
+        </label>
+      </div>
+      <button class="reveal-btn" data-question="q16">उत्तर देखने के लिए क्लिक करें</button>
+      <div class="answer-text" data-answer-for="q16"></div>
+    </div>
+
+    <!-- ===== GEOGRAPHY ===== -->
+    <div class="section-heading">Geography</div>
+
+    <!-- Q17 -->
+    <div class="card" data-question="q17">
+      <div class="card-header">
+        <div class="q-badge">Q17</div>
+        <div class="category-pill">Geography</div>
+      </div>
+      <div class="question-text">
+        भारत में हरित क्रांति (Green Revolution) शुरू करने का मुख्य उद्देश्य क्या था?
+      </div>
+      <div class="options">
+        <label class="option">
+          <input type="radio" name="q17" value="A" />
+          <div class="option-letter">A</div>
+          <div class="option-text">जैविक (ऑर्गेनिक) खेती को बढ़ावा देना</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q17" value="B" />
+          <div class="option-letter">B</div>
+          <div class="option-text">औद्योगिक उत्पादन बढ़ाना</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q17" value="C" />
+          <div class="option-letter">C</div>
+          <div class="option-text">नकदी फसलों की खेती को प्रोत्साहित करना</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q17" value="D" />
+          <div class="option-letter">D</div>
+          <div class="option-text">अनाज में आत्मनिर्भरता (self-sufficiency) प्राप्त करना</div>
+        </label>
+      </div>
+      <button class="reveal-btn" data-question="q17">उत्तर देखने के लिए क्लिक करें</button>
+      <div class="answer-text" data-answer-for="q17"></div>
+    </div>
+
+    <!-- Q18 -->
+    <div class="card" data-question="q18">
+      <div class="card-header">
+        <div class="q-badge">Q18</div>
+        <div class="category-pill">Geography</div>
+      </div>
+      <div class="question-text">
+        ‘Arboriculture’ शब्द किसके लिए प्रयुक्त होता है?
+      </div>
+      <div class="options">
+        <label class="option">
+          <input type="radio" name="q18" value="A" />
+          <div class="option-letter">A</div>
+          <div class="option-text">
+            छाया और साज-सज्जा के लिए पेड़, झाड़ियाँ और लकड़ी वाली पौधों की खेती
+          </div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q18" value="B" />
+          <div class="option-letter">B</div>
+          <div class="option-text">मृदा और फसल प्रबंधन तकनीकों का अध्ययन</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q18" value="C" />
+          <div class="option-letter">C</div>
+          <div class="option-text">औषधीय एवं जड़ी-बूटी वाली पौधों की खेती</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q18" value="D" />
+          <div class="option-letter">D</div>
+          <div class="option-text">फल उत्पादन और बागवानी प्रबंधन से संबंधित विज्ञान</div>
+        </label>
+      </div>
+      <button class="reveal-btn" data-question="q18">उत्तर देखने के लिए क्लिक करें</button>
+      <div class="answer-text" data-answer-for="q18"></div>
+    </div>
+
+    <!-- Q19 -->
+    <div class="card" data-question="q19">
+      <div class="card-header">
+        <div class="q-badge">Q19</div>
+        <div class="category-pill">Geography</div>
+      </div>
+      <div class="question-text">
+        भारतीय जनसांख्यिकीय इतिहास में, जनसंख्या वृद्धि दर में कमी दर्ज होने के कारण किस वर्ष को ‘Year of Great Demographic Divide’ कहा जाता है?
+      </div>
+      <div class="options">
+        <label class="option">
+          <input type="radio" name="q19" value="A" />
+          <div class="option-letter">A</div>
+          <div class="option-text">1911</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q19" value="B" />
+          <div class="option-letter">B</div>
+          <div class="option-text">1921</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q19" value="C" />
+          <div class="option-letter">C</div>
+          <div class="option-text">1931</div>
+        </label>
+        <label class="option">
+          <input type="radio" name="q19" value="D" />
+          <div class="option-letter">D</div>
+          <div class="option-text">1941</div>
+        </label>
+      </div>
+      <button class="reveal-btn" data-question="q19">उत्तर देखने के लिए क्लिक करें</button>
+      <div class="answer-text" data-answer-for="q19"></div>
+    </div>
+  </div>
+
+  <script>
+    const answerKey = {
+      q1: "B",
+      q2: "C",
+      q3: "B",
+      q4: "D",
+      q5: "B",
+      q6: "A",
+      q7: "B",
+      q8: "C",
+      q9: "B",
+      q10: "A",
+      q11: "D",
+      q12: "C",
+      q13: "B",
+      q14: "D",
+      q15: "C",
+      q16: "C",
+      q17: "D",
+      q18: "A",
+      q19: "B",
+    };
+
+    document.addEventListener("DOMContentLoaded", function () {
+      // Fill answer text in Hindi
+      for (const q in answerKey) {
+        const box = document.querySelector(
+          '.answer-text[data-answer-for="' + q + '"]'
+        );
+        if (box) {
+          box.innerHTML = "सही उत्तर: <span>" + answerKey[q] + "</span>";
+        }
+      }
+
+      // Per-question reveal buttons
+      document.querySelectorAll(".reveal-btn").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          const q = btn.getAttribute("data-question");
+          const answerBox = document.querySelector(
+            '.answer-text[data-answer-for="' + q + '"]'
+          );
+          if (!answerBox) return;
+
+          const visible = answerBox.style.display === "block";
+          answerBox.style.display = visible ? "none" : "block";
+          btn.textContent = visible
+            ? "उत्तर देखने के लिए क्लिक करें"
+            : "उत्तर छिपाएँ";
+        });
+      });
+
+      // Calculate score
+      document
+        .getElementById("scoreBtn")
+        .addEventListener("click", function () {
+          let score = 0;
+
+          document.querySelectorAll(".card").forEach(function (card) {
+            card.classList.remove("correct", "incorrect");
+          });
+
+          for (const q in answerKey) {
+            const options = document.querySelectorAll('input[name="' + q + '"]');
+            let selected = null;
+            options.forEach(function (opt) {
+              if (opt.checked) selected = opt.value;
+            });
+
+            const card = document.querySelector('.card[data-question="' + q + '"]');
+            if (!card) continue;
+
+            if (selected === answerKey[q]) {
+              score++;
+              card.classList.add("correct");
+            } else if (selected !== null) {
+              card.classList.add("incorrect");
+            }
+          }
+
+          document.getElementById("scoreDisplay").textContent =
+            "आपका स्कोर: " + score + " / 19";
+        });
+
+      // Reveal all / hide all
+      let allVisible = false;
+      document
+        .getElementById("revealAllBtn")
+        .addEventListener("click", function () {
+          allVisible = !allVisible;
+          document.querySelectorAll(".answer-text").forEach(function (box) {
+            box.style.display = allVisible ? "block" : "none";
+          });
+          document.querySelectorAll(".reveal-btn").forEach(function (btn) {
+            btn.textContent = allVisible
+              ? "उत्तर छिपाएँ"
+              : "उत्तर देखने के लिए क्लिक करें";
+          });
+          this.textContent = allVisible
+            ? "सभी उत्तर छिपाएँ"
+            : "सभी उत्तर दिखाएँ";
+        });
+
+      // Reset quiz
+      document
+        .getElementById("resetBtn")
+        .addEventListener("click", function () {
+          document
+            .querySelectorAll('input[type="radio"]')
+            .forEach(function (r) {
+              r.checked = false;
+            });
+          document.querySelectorAll(".card").forEach(function (card) {
+            card.classList.remove("correct", "incorrect");
+          });
+          document.querySelectorAll(".answer-text").forEach(function (box) {
+            box.style.display = "none";
+          });
+          document.querySelectorAll(".reveal-btn").forEach(function (btn) {
+            btn.textContent = "उत्तर देखने के लिए क्लिक करें";
+          });
+          document.getElementById("scoreDisplay").textContent = "";
+          document.getElementById("revealAllBtn").textContent =
+            "सभी उत्तर दिखाएँ";
+          allVisible = false;
+        });
+    });
+  </script>
+</body>
+</html>
