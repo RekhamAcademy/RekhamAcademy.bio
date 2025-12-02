@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>General Awareness – Interactive MCQ Quiz</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{
+  font-family: Arial, sans-serif;
+  background: #e3f2fd;
+  padding:20px;
+}
+.container{
+  max-width:900px;
+  margin:auto;
+  background:white;
+  padding:20px;
+  border-radius:12px;
+  box-shadow:0 0 20px rgba(0,0,0,0.15);
+}
+h1{
+  text-align:center;
+  font-size:28px;
+  background: linear-gradient(45deg,#4a148c,#007bff);
+  -webkit-background-clip: text;
+  color: transparent;
+  font-weight:800;
+}
+.btn{
+  padding:10px 20px;
+  border:none;
+  border-radius:8px;
+  color:white;
+  cursor:pointer;
+  font-size:16px;
+}
+.calc{background:#00c853;}
+.reveal{background:#ff6d00;}
+.reset{background:#424242;}
+
+.q-block{
+  background:#f1f8ff;
+  padding:15px;
+  border-radius:10px;
+  margin-top:15px;
+}
+.opt{
+  margin:8px 0;
+}
+.ans{
+  display:none;
+  background:#c8e6c9;
+  padding:10px;
+  border-radius:6px;
+  margin-top:10px;
+}
+.reveal-btn{
+  margin-top:10px;
+  padding:6px 12px;
+  background:#0288d1;
+  color:white;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+}
+</style>
+<script>
+function reveal(id){
+  document.getElementById(id).style.display='block';
+}
+function revealAll(){
+  document.querySelectorAll('.ans').forEach(a=>a.style.display='block');
+}
+function resetQuiz(){
+  document.querySelectorAll('.ans').forEach(a=>a.style.display='none');
+}
+</script>
+</head>
+<body>
+<div class="container">
+<h1>General Awareness — Interactive MCQ Quiz</h1>
+
+<!-- Questions -->
+<div class='q-block'><b>Q1. Who among the following Indian-origin leaders was elected as the Lieutenant Governor of Virginia in 2025?</b><div class='opt'>A) Rishi Sunak</div><div class='opt'>B) Ghazala Hashmi</div><div class='opt'>C) Nikki Haley</div><div class='opt'>D) Vivek Ramaswamy</div><button class='reveal-btn' onclick="reveal('ans1')">Click to Reveal Answer</button><div class='ans' id='ans1'><b>Answer: B</b></div></div><div class='q-block'><b>Q2. Who has been appointed as the new Controller General of Defence Accounts (CGDA) in 2025?</b><div class='opt'>A) Rajeev Talwar</div><div class='opt'>B) Vishvajit Sahay</div><div class='opt'>C) Sanjay Malhotra</div><div class='opt'>D) Neeta Verma</div><button class='reveal-btn' onclick="reveal('ans2')">Click to Reveal Answer</button><div class='ans' id='ans2'><b>Answer: B</b></div></div><div class='q-block'><b>Q3. Who has recently taken charge as the new Financial Advisor (Defence Services) in 2025?</b><div class='opt'>A) Ajay Seth</div><div class='opt'>B) T.V. Somanathan</div><div class='opt'>C) S. Somanath</div><div class='opt'>D) Raj Kumar Arora</div><button class='reveal-btn' onclick="reveal('ans3')">Click to Reveal Answer</button><div class='ans' id='ans3'><b>Answer: D</b></div></div><div class='q-block'><b>Q4. Who has assumed charge as the Director General of BIS?</b><div class='opt'>A) Sanjay Garg</div><div class='opt'>B) Rajiv Bansal</div><div class='opt'>C) Arun Kumar Mishra</div><div class='opt'>D) Anil Kumar Jain</div><button class='reveal-btn' onclick="reveal('ans4')">Click to Reveal Answer</button><div class='ans' id='ans4'><b>Answer: A</b></div></div><div class='q-block'><b>Q5. Which legendary footballer received Knighthood from UK?</b><div class='opt'>A) Steven Gerrard</div><div class='opt'>B) Wayne Rooney</div><div class='opt'>C) Frank Lampard</div><div class='opt'>D) David Beckham</div><button class='reveal-btn' onclick="reveal('ans5')">Click to Reveal Answer</button><div class='ans' id='ans5'><b>Answer: D</b></div></div><div class='q-block'><b>Q6. Which Indian city was recognised by UNESCO as ‘City of Gastronomy’?</b><div class='opt'>A) Lucknow</div><div class='opt'>B) Hyderabad</div><div class='opt'>C) Amritsar</div><div class='opt'>D) Jaipur</div><button class='reveal-btn' onclick="reveal('ans6')">Click to Reveal Answer</button><div class='ans' id='ans6'><b>Answer: A</b></div></div><div class='q-block'><b>Q7. Who took oath as the 53rd Chief Justice of India (CJI)?</b><div class='opt'>A) Justice Sanjiv Khanna</div><div class='opt'>B) Justice B.R. Gavai</div><div class='opt'>C) Justice Surya Kant</div><div class='opt'>D) Justice Hima Kohli</div><button class='reveal-btn' onclick="reveal('ans7')">Click to Reveal Answer</button><div class='ans' id='ans7'><b>Answer: C</b></div></div><div class='q-block'><b>Q8. Gaur Maria Dance belongs to which state?</b><div class='opt'>A) Chhattisgarh</div><div class='opt'>B) Jharkhand</div><div class='opt'>C) Madhya Pradesh</div><div class='opt'>D) Odisha</div><button class='reveal-btn' onclick="reveal('ans8')">Click to Reveal Answer</button><div class='ans' id='ans8'><b>Answer: A</b></div></div><div class='q-block'><b>Q9. In which year did Priyanka Chopra win Miss World?</b><div class='opt'>A) 1999</div><div class='opt'>B) 2001</div><div class='opt'>C) 2000</div><div class='opt'>D) 2002</div><button class='reveal-btn' onclick="reveal('ans9')">Click to Reveal Answer</button><div class='ans' id='ans9'><b>Answer: C</b></div></div><div class='q-block'><b>Q10. PM-SVANidhi scheme was launched in:</b><div class='opt'>A) 2020</div><div class='opt'>B) 2018</div><div class='opt'>C) 2021</div><div class='opt'>D) 2019</div><button class='reveal-btn' onclick="reveal('ans10')">Click to Reveal Answer</button><div class='ans' id='ans10'><b>Answer: A</b></div></div><div class='q-block'><b>Q11. NRSC under ISRO is located in:</b><div class='opt'>A) Bengaluru</div><div class='opt'>B) Chennai</div><div class='opt'>C) New Delhi</div><div class='opt'>D) Hyderabad</div><button class='reveal-btn' onclick="reveal('ans11')">Click to Reveal Answer</button><div class='ans' id='ans11'><b>Answer: D</b></div></div><div class='q-block'><b>Q12. Who shifted the capital to Devagiri( Daulatabad )?</b><div class='opt'>A) Alauddin Khilji</div><div class='opt'>B) Muhammad Bin Tughlaq</div><div class='opt'>C) Firoz Shah</div><div class='opt'>D) Ghiyasuddin</div><button class='reveal-btn' onclick="reveal('ans12')">Click to Reveal Answer</button><div class='ans' id='ans12'><b>Answer: B</b></div></div><div class='q-block'><b>Q13. English envoy sent to Jahangir in 1615:</b><div class='opt'>A) Ralph Fitch</div><div class='opt'>B) Thomas Roe</div><div class='opt'>C) William Hawkins</div><div class='opt'>D) Robert Clive</div><button class='reveal-btn' onclick="reveal('ans13')">Click to Reveal Answer</button><div class='ans' id='ans13'><b>Answer: B</b></div></div><div class='q-block'><b>Q14. Battle of Raichur (1520) was fought between:</b><div class='opt'>A) Vijayanagara & Bijapur</div><div class='opt'>B) Mughals & Bahmani</div><div class='opt'>C) Marathas & Mughals</div><div class='opt'>D) Cholas & Hoysalas</div><button class='reveal-btn' onclick="reveal('ans14')">Click to Reveal Answer</button><div class='ans' id='ans14'><b>Answer: A</b></div></div><div class='q-block'><b>Q15. First Battle of Panipat (1526) was fought between Babur and:</b><div class='opt'>A) Sher Shah</div><div class='opt'>B) Alauddin</div><div class='opt'>C) Sikandar Lodi</div><div class='opt'>D) Ibrahim Lodi</div><button class='reveal-btn' onclick="reveal('ans15')">Click to Reveal Answer</button><div class='ans' id='ans15'><b>Answer: D</b></div></div><div class='q-block'><b>Q16. Article requiring presentation of Finance Commission report:</b><div class='opt'>A) Art.280</div><div class='opt'>B) Art.282</div><div class='opt'>C) Art.281</div><div class='opt'>D) Art.283</div><button class='reveal-btn' onclick="reveal('ans16')">Click to Reveal Answer</button><div class='ans' id='ans16'><b>Answer: C</b></div></div><div class='q-block'><b>Q17. Which writ allows quashing lower court order?</b><div class='opt'>A) Mandamus</div><div class='opt'>B) Prohibition</div><div class='opt'>C) Quo Warranto</div><div class='opt'>D) Certiorari</div><button class='reveal-btn' onclick="reveal('ans17')">Click to Reveal Answer</button><div class='ans' id='ans17'><b>Answer: D</b></div></div><div class='q-block'><b>Q18. 100th Amendment was with which country?</b><div class='opt'>A) Bangladesh</div><div class='opt'>B) Nepal</div><div class='opt'>C) Bhutan</div><div class='opt'>D) Myanmar</div><button class='reveal-btn' onclick="reveal('ans18')">Click to Reveal Answer</button><div class='ans' id='ans18'><b>Answer: A</b></div></div><div class='q-block'><b>Q19. Article restricting FR under martial law:</b><div class='opt'>A) Art.32</div><div class='opt'>B) Art.34</div><div class='opt'>C) Art.20</div><div class='opt'>D) Art.35</div><button class='reveal-btn' onclick="reveal('ans19')">Click to Reveal Answer</button><div class='ans' id='ans19'><b>Answer: B</b></div></div>
+<br><button class="btn reveal" onclick="revealAll()">Reveal All</button>
+<button class="btn reset" onclick="resetQuiz()">Reset</button>
+</div>
+</body>
+</html>
