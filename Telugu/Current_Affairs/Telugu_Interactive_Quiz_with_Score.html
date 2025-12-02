@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html lang="te">
+<head>
+<meta charset="UTF-8">
+<title>తెలుగు ఇంటరాక్టివ్ MCQ క్విజ్</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{
+  font-family: Arial, sans-serif;
+  background: #ede7f6;
+  padding:20px;
+}
+.container{
+  max-width:900px;
+  margin:auto;
+  background:white;
+  padding:20px;
+  border-radius:12px;
+  box-shadow:0 0 20px rgba(0,0,0,0.15);
+}
+h1{
+  text-align:center;
+  font-size:28px;
+  background: linear-gradient(45deg,#6a1b9a,#1e88e5);
+  -webkit-background-clip: text;
+  color: transparent;
+  font-weight:800;
+}
+.btn{
+  padding:10px 18px;
+  border:none;
+  border-radius:8px;
+  color:white;
+  cursor:pointer;
+  font-size:16px;
+  margin-right:10px;
+}
+.calc{background:#2e7d32;}
+.reveal{background:#fb8c00;}
+.reset{background:#424242;}
+
+.q-block{
+  background:#f3e5f5;
+  padding:15px;
+  border-radius:12px;
+  margin-top:15px;
+}
+.opt{
+  margin:8px 0;
+}
+.ans{
+  display:none;
+  background:#c8e6c9;
+  padding:10px;
+  border-radius:6px;
+  margin-top:10px;
+}
+.reveal-btn{
+  margin-top:10px;
+  padding:6px 12px;
+  background:#1e88e5;
+  color:white;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+}
+</style>
+
+<script>
+function reveal(id){
+  document.getElementById(id).style.display='block';
+}
+
+function revealAll(){
+  document.querySelectorAll('.ans').forEach(a=>a.style.display='block');
+}
+
+function resetQuiz(){
+  document.querySelectorAll('.ans').forEach(a=>a.style.display='none');
+  document.querySelectorAll('input[type=radio]').forEach(r=>r.checked=false);
+  document.getElementById('scoreBox').innerHTML="";
+}
+
+function calculateScore(){
+  let score = 0;
+
+  if(document.getElementById('q1B').checked) score++;
+  if(document.getElementById('q2B').checked) score++;
+  if(document.getElementById('q3D').checked) score++;
+  if(document.getElementById('q4A').checked) score++;
+  if(document.getElementById('q5D').checked) score++;
+  if(document.getElementById('q6A').checked) score++;
+  if(document.getElementById('q7C').checked) score++;
+  if(document.getElementById('q8A').checked) score++;
+  if(document.getElementById('q9C').checked) score++;
+  if(document.getElementById('q10A').checked) score++;
+  if(document.getElementById('q11D').checked) score++;
+  if(document.getElementById('q12B').checked) score++;
+  if(document.getElementById('q13B').checked) score++;
+  if(document.getElementById('q14A').checked) score++;
+  if(document.getElementById('q15D').checked) score++;
+  if(document.getElementById('q16C').checked) score++;
+  if(document.getElementById('q17D').checked) score++;
+  if(document.getElementById('q18A').checked) score++;
+  if(document.getElementById('q19B').checked) score++;
+  document.getElementById('scoreBox').innerHTML = "<h2>మీ స్కోర్: " + score + " / 19</h2>";
+}
+</script>
+
+</head>
+<body>
+<div class="container">
+<h1>తెలుగు — ఇంటరాక్టివ్ MCQ క్విజ్</h1>
+
+<button class="btn calc" onclick="calculateScore()">స్కోర్ గణించు</button>
+<button class="btn reveal" onclick="revealAll()">అన్ని సమాధానాలు చూపు</button>
+<button class="btn reset" onclick="resetQuiz()">రిసెట్</button>
+
+<div id="scoreBox" style="margin-top:15px; font-size:20px; font-weight:bold;"></div>
+<div class='q-block'><b>Q1. 2025లో వర్జీనియాలో లెఫ్టినెంట్ గవర్నర్‌గా ఎన్నికైన భారతీయ మూలాల నాయకుడు ఎవరు?</b><div class='opt'><input type='radio' name='q1' id='q1A'> A) రిషి సునాక్</div><div class='opt'><input type='radio' name='q1' id='q1B'> B) గజాలా హష్మీ</div><div class='opt'><input type='radio' name='q1' id='q1C'> C) నిక్కీ హేలీ</div><div class='opt'><input type='radio' name='q1' id='q1D'> D) వివేక్ రామస్వామి</div><button class='reveal-btn' onclick="reveal('ans1')">సమాధానం చూపు</button><div class='ans' id='ans1'><b>సమాధానం: B</b></div></div><div class='q-block'><b>Q2. 2025లో కొత్త డిఫెన్స్ అకౌంట్స్ కంట్రోలర్ జనరల్ (CGDA) ఎవరు?</b><div class='opt'><input type='radio' name='q2' id='q2A'> A) రజీవ్ తల్వార్</div><div class='opt'><input type='radio' name='q2' id='q2B'> B) విశ్వజిత్ సహాయ్</div><div class='opt'><input type='radio' name='q2' id='q2C'> C) సంజయ్ మల్హోత్రా</div><div class='opt'><input type='radio' name='q2' id='q2D'> D) నీతా వర్మ</div><button class='reveal-btn' onclick="reveal('ans2')">సమాధానం చూపు</button><div class='ans' id='ans2'><b>సమాధానం: B</b></div></div><div class='q-block'><b>Q3. రక్షణ మంత్రిత్వ శాఖలో కొత్త ఫైనాన్షియల్ అడ్వైజర్ (Defence Services) గా బాధ్యతలు స్వీకరించినది ఎవరు?</b><div class='opt'><input type='radio' name='q3' id='q3A'> A) అజయ్ సేథ్</div><div class='opt'><input type='radio' name='q3' id='q3B'> B) టి.వి. సోమనాథన్</div><div class='opt'><input type='radio' name='q3' id='q3C'> C) ఎస్. సోమనాథ్</div><div class='opt'><input type='radio' name='q3' id='q3D'> D) రాజ్‌కుమార్ అరోరా</div><button class='reveal-btn' onclick="reveal('ans3')">సమాధానం చూపు</button><div class='ans' id='ans3'><b>సమాధానం: D</b></div></div><div class='q-block'><b>Q4. బ్యూరో ఆఫ్ ఇండియన్ స్టాండర్డ్స్ (BIS) కొత్త డైరెక్టర్ జనరల్ ఎవరు?</b><div class='opt'><input type='radio' name='q4' id='q4A'> A) సంజయ్ గర్గ్</div><div class='opt'><input type='radio' name='q4' id='q4B'> B) రజీవ్ బన్సాల్</div><div class='opt'><input type='radio' name='q4' id='q4C'> C) అరుణ్ కుమార్ మిశ్రా</div><div class='opt'><input type='radio' name='q4' id='q4D'> D) అనిల్ కుమార్ జైన్</div><button class='reveal-btn' onclick="reveal('ans4')">సమాధానం చూపు</button><div class='ans' id='ans4'><b>సమాధానం: A</b></div></div><div class='q-block'><b>Q5. స్పోర్ట్స్ & ఫిలాంత్రపీలో కృషికి UK 'నైట్హుడ్' బహుమతి అందుకున్న లెజెండరీ ఫుట్‌బాలర్ ఎవరు?</b><div class='opt'><input type='radio' name='q5' id='q5A'> A) స్టీవెన్ జెరార్డ్</div><div class='opt'><input type='radio' name='q5' id='q5B'> B) వేన్ రూనీ</div><div class='opt'><input type='radio' name='q5' id='q5C'> C) ఫ్రాంక్ లాంపార్డ్</div><div class='opt'><input type='radio' name='q5' id='q5D'> D) డేవిడ్ బెఖామ్</div><button class='reveal-btn' onclick="reveal('ans5')">సమాధానం చూపు</button><div class='ans' id='ans5'><b>సమాధానం: D</b></div></div><div class='q-block'><b>Q6. యునెస్కో ‘సిటీ ఆఫ్ గాస్ట్రోనమీ’గా గుర్తింపు పొందిన భారతీయ నగరం ఏది?</b><div class='opt'><input type='radio' name='q6' id='q6A'> A) లక్నో</div><div class='opt'><input type='radio' name='q6' id='q6B'> B) హైదరాబాద్</div><div class='opt'><input type='radio' name='q6' id='q6C'> C) అమృతసర్</div><div class='opt'><input type='radio' name='q6' id='q6D'> D) జైపూర్</div><button class='reveal-btn' onclick="reveal('ans6')">సమాధానం చూపు</button><div class='ans' id='ans6'><b>సమాధానం: A</b></div></div><div class='q-block'><b>Q7. 2025లో భారత ప్రధాన న్యాయమూర్తి (CJI)గా ప్రమాణం చేసిన న్యాయమూర్తి ఎవరు?</b><div class='opt'><input type='radio' name='q7' id='q7A'> A) జస్టిస్ సంజీవ్ ఖన్నా</div><div class='opt'><input type='radio' name='q7' id='q7B'> B) జస్టిస్ బి.ఆర్. గవాయ్</div><div class='opt'><input type='radio' name='q7' id='q7C'> C) జస్టిస్ సూర్యకాంత్</div><div class='opt'><input type='radio' name='q7' id='q7D'> D) జస్టిస్ హిమా కొహ్లీ</div><button class='reveal-btn' onclick="reveal('ans7')">సమాధానం చూపు</button><div class='ans' id='ans7'><b>సమాధానం: C</b></div></div><div class='q-block'><b>Q8. గౌర్ మరియా నృత్యం ఏ రాష్ట్రానికి చెందినది?</b><div class='opt'><input type='radio' name='q8' id='q8A'> A) ఛత్తీస్‌గఢ్</div><div class='opt'><input type='radio' name='q8' id='q8B'> B) ఝార్ఖండ్</div><div class='opt'><input type='radio' name='q8' id='q8C'> C) మధ్యప్రదేశ్</div><div class='opt'><input type='radio' name='q8' id='q8D'> D) ఒడిశా</div><button class='reveal-btn' onclick="reveal('ans8')">సమాధానం చూపు</button><div class='ans' id='ans8'><b>సమాధానం: A</b></div></div><div class='q-block'><b>Q9. ప్రియాంక చోప్రా మిస్‌ వరల్డ్ టైటిల్ గెలుచుకున్న సంవత్సరం ఏది?</b><div class='opt'><input type='radio' name='q9' id='q9A'> A) 1999</div><div class='opt'><input type='radio' name='q9' id='q9B'> B) 2001</div><div class='opt'><input type='radio' name='q9' id='q9C'> C) 2000</div><div class='opt'><input type='radio' name='q9' id='q9D'> D) 2002</div><button class='reveal-btn' onclick="reveal('ans9')">సమాధానం చూపు</button><div class='ans' id='ans9'><b>సమాధానం: C</b></div></div><div class='q-block'><b>Q10. PM–SVANidhi పథకం ఏ సంవత్సరంలో ప్రారంభమైంది?</b><div class='opt'><input type='radio' name='q10' id='q10A'> A) 2020</div><div class='opt'><input type='radio' name='q10' id='q10B'> B) 2018</div><div class='opt'><input type='radio' name='q10' id='q10C'> C) 2021</div><div class='opt'><input type='radio' name='q10' id='q10D'> D) 2019</div><button class='reveal-btn' onclick="reveal('ans10')">సమాధానం చూపు</button><div class='ans' id='ans10'><b>సమాధానం: A</b></div></div><div class='q-block'><b>Q11. ISRO ఆధీనంలోని నేషనల్ రిమోట్ సెన్సింగ్ సెంటర్ (NRSC) ఎక్కడ ఉంది?</b><div class='opt'><input type='radio' name='q11' id='q11A'> A) బెంగళూరు</div><div class='opt'><input type='radio' name='q11' id='q11B'> B) చెన్నై</div><div class='opt'><input type='radio' name='q11' id='q11C'> C) న్యూఢిల్లి</div><div class='opt'><input type='radio' name='q11' id='q11D'> D) హైదరాబాద్</div><button class='reveal-btn' onclick="reveal('ans11')">సమాధానం చూపు</button><div class='ans' id='ans11'><b>సమాధానం: D</b></div></div><div class='q-block'><b>Q12. దిల్లీ నుండి దేవగిరి (దౌలతాబాద్)కు రాజధాని మార్చిన సుల్తాన్ ఎవరు?</b><div class='opt'><input type='radio' name='q12' id='q12A'> A) అలౌద్దీన్ ఖిల్జీ</div><div class='opt'><input type='radio' name='q12' id='q12B'> B) ముహమ్మద్ బిన్ తుగ్లక్</div><div class='opt'><input type='radio' name='q12' id='q12C'> C) ఫిరోజ్‌షా తుగ్లక్</div><div class='opt'><input type='radio' name='q12' id='q12D'> D) ఘియాస్‌ఉద్దీన్</div><button class='reveal-btn' onclick="reveal('ans12')">సమాధానం చూపు</button><div class='ans' id='ans12'><b>సమాధానం: B</b></div></div><div class='q-block'><b>Q13. 1615లో జహాంగీర్ కోర్ట్‌కు పంపబడిన ఇంగ్లీషు రాయబారి ఎవరు?</b><div class='opt'><input type='radio' name='q13' id='q13A'> A) రాల్ఫ్ ఫిచ్</div><div class='opt'><input type='radio' name='q13' id='q13B'> B) థామస్ రో</div><div class='opt'><input type='radio' name='q13' id='q13C'> C) విలియం హాకిన్స్</div><div class='opt'><input type='radio' name='q13' id='q13D'> D) రాబర్ట్ క్లైవ్</div><button class='reveal-btn' onclick="reveal('ans13')">సమాధానం చూపు</button><div class='ans' id='ans13'><b>సమాధానం: B</b></div></div><div class='q-block'><b>Q14. 1520 రాయచూరు యుద్ధం ఎవరి మధ్య జరిగింది?</b><div class='opt'><input type='radio' name='q14' id='q14A'> A) విజయనగరం–బీజాపూర్</div><div class='opt'><input type='radio' name='q14' id='q14B'> B) ముగలులు–బహ్మనీ</div><div class='opt'><input type='radio' name='q14' id='q14C'> C) మరాఠాలు–ముగలులు</div><div class='opt'><input type='radio' name='q14' id='q14D'> D) చోలులు–హొయసళులు</div><button class='reveal-btn' onclick="reveal('ans14')">సమాధానం చూపు</button><div class='ans' id='ans14'><b>సమాధానం: A</b></div></div><div class='q-block'><b>Q15. 1526 మొదటి పానిపట్ యుద్ధం బాబర్ మరియు ఎవరి మధ్య జరిగింది?</b><div class='opt'><input type='radio' name='q15' id='q15A'> A) షేర్ షా</div><div class='opt'><input type='radio' name='q15' id='q15B'> B) అలౌద్దీన్</div><div class='opt'><input type='radio' name='q15' id='q15C'> C) సికందర్ లోడి</div><div class='opt'><input type='radio' name='q15' id='q15D'> D) ఇబ్రాహీం లోడి</div><button class='reveal-btn' onclick="reveal('ans15')">సమాధానం చూపు</button><div class='ans' id='ans15'><b>సమాధానం: D</b></div></div><div class='q-block'><b>Q16. ఫైనాన్స్ కమిషన్ సిఫారసులను పార్లమెంట్ ముందు ఉంచాలని ఏ ఆర్టికల్ చెబుతుంది?</b><div class='opt'><input type='radio' name='q16' id='q16A'> A) ఆర్టికల్ 280</div><div class='opt'><input type='radio' name='q16' id='q16B'> B) ఆర్టికల్ 282</div><div class='opt'><input type='radio' name='q16' id='q16C'> C) ఆర్టికల్ 281</div><div class='opt'><input type='radio' name='q16' id='q16D'> D) ఆర్టికల్ 283</div><button class='reveal-btn' onclick="reveal('ans16')">సమాధానం చూపు</button><div class='ans' id='ans16'><b>సమాధానం: C</b></div></div><div class='q-block'><b>Q17. క్రింది వాటిలో ఏ రిట్ ద్వారా హైకోర్టు/సుప్రీంకోర్టు తక్కువ కోర్టుల నిర్ణయాలను రద్దు చేయగలదు?</b><div class='opt'><input type='radio' name='q17' id='q17A'> A) మాండమస్</div><div class='opt'><input type='radio' name='q17' id='q17B'> B) ప్రొహిబిషన్</div><div class='opt'><input type='radio' name='q17' id='q17C'> C) క్వో వారంటో</div><div class='opt'><input type='radio' name='q17' id='q17D'> D) సర్టియోరరి</div><button class='reveal-btn' onclick="reveal('ans17')">సమాధానం చూపు</button><div class='ans' id='ans17'><b>సమాధానం: D</b></div></div><div class='q-block'><b>Q18. భారత–బంగ్లాదేశ్ భూ సరిహద్దు ఒప్పందాన్ని ధ్రువీకరించినది ఏ శతవత్సర సవరణ?</b><div class='opt'><input type='radio' name='q18' id='q18A'> A) బంగ్లాదేశ్</div><div class='opt'><input type='radio' name='q18' id='q18B'> B) నేపాల్</div><div class='opt'><input type='radio' name='q18' id='q18C'> C) భూటాన్</div><div class='opt'><input type='radio' name='q18' id='q18D'> D) మయన్మార్</div><button class='reveal-btn' onclick="reveal('ans18')">సమాధానం చూపు</button><div class='ans' id='ans18'><b>సమాధానం: A</b></div></div><div class='q-block'><b>Q19. మార్షల్ లా సమయంలో మౌలిక హక్కులపై పరిమితులు విధించేందుకు అనుమతించే ఆర్టికల్ ఏది?</b><div class='opt'><input type='radio' name='q19' id='q19A'> A) ఆర్టికల్ 32</div><div class='opt'><input type='radio' name='q19' id='q19B'> B) ఆర్టికల్ 34</div><div class='opt'><input type='radio' name='q19' id='q19C'> C) ఆర్టికల్ 20</div><div class='opt'><input type='radio' name='q19' id='q19D'> D) ఆర్టికల్ 35</div><button class='reveal-btn' onclick="reveal('ans19')">సమాధానం చూపు</button><div class='ans' id='ans19'><b>సమాధానం: B</b></div></div>
+</div>
+</body>
+</html>
