@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<title>सामान्य जागरूकता — इंटरएक्टिव MCQ क्विज़ (Hindi)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{
+  font-family: Arial, sans-serif;
+  background: #e3f2fd;
+  padding:20px;
+}
+.container{
+  max-width:900px;
+  margin:auto;
+  background:white;
+  padding:20px;
+  border-radius:12px;
+  box-shadow:0 0 20px rgba(0,0,0,0.15);
+}
+h1{
+  text-align:center;
+  font-size:26px;
+  background: linear-gradient(45deg,#6a1b9a,#1e88e5);
+  -webkit-background-clip: text;
+  color: transparent;
+  font-weight:800;
+}
+.subtitle{
+  text-align:center;
+  margin-top:4px;
+  color:#555;
+  font-size:14px;
+}
+.btn{
+  padding:9px 18px;
+  border:none;
+  border-radius:20px;
+  color:white;
+  cursor:pointer;
+  font-size:15px;
+  margin-right:10px;
+}
+.calc{background:#2e7d32;}
+.reveal{background:#fb8c00;}
+.reset{background:#424242;}
+
+.q-block{
+  background:#f1f8ff;
+  padding:15px;
+  border-radius:12px;
+  margin-top:15px;
+}
+.opt{
+  margin:8px 0;
+}
+.ans{
+  display:none;
+  background:#c8e6c9;
+  padding:10px;
+  border-radius:6px;
+  margin-top:10px;
+}
+.reveal-btn{
+  margin-top:10px;
+  padding:6px 12px;
+  background:#1e88e5;
+  color:white;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+}
+</style>
+
+<script>
+function reveal(id){
+  document.getElementById(id).style.display='block';
+}
+
+function revealAll(){
+  document.querySelectorAll('.ans').forEach(a=>a.style.display='block');
+}
+
+function resetQuiz(){
+  document.querySelectorAll('.ans').forEach(a=>a.style.display='none');
+  document.querySelectorAll('input[type=radio]').forEach(r=>r.checked=false);
+  document.getElementById('scoreBox').innerHTML="";
+}
+
+function calculateScore(){
+  let score = 0;
+
+  if(document.getElementById('q1B').checked) score++;
+  if(document.getElementById('q2B').checked) score++;
+  if(document.getElementById('q3D').checked) score++;
+  if(document.getElementById('q4A').checked) score++;
+  if(document.getElementById('q5D').checked) score++;
+  if(document.getElementById('q6A').checked) score++;
+  if(document.getElementById('q7C').checked) score++;
+  if(document.getElementById('q8A').checked) score++;
+  if(document.getElementById('q9C').checked) score++;
+  if(document.getElementById('q10A').checked) score++;
+  if(document.getElementById('q11D').checked) score++;
+  if(document.getElementById('q12B').checked) score++;
+  if(document.getElementById('q13B').checked) score++;
+  if(document.getElementById('q14A').checked) score++;
+  if(document.getElementById('q15D').checked) score++;
+  if(document.getElementById('q16C').checked) score++;
+  if(document.getElementById('q17D').checked) score++;
+  if(document.getElementById('q18A').checked) score++;
+  if(document.getElementById('q19B').checked) score++;
+  document.getElementById('scoreBox').innerHTML = "<h2>आपका स्कोर: " + score + " / 19</h2>";
+}
+</script>
+</head>
+<body>
+<div class="container">
+<h1>सामान्य जागरूकता — इंटरएक्टिव MCQ क्विज़</h1>
+<div class="subtitle">Click to reveal answers • स्कोर बटन दबाकर अपना स्कोर देखें</div>
+
+<div style="margin-top:15px; margin-bottom:5px;">
+  <button class="btn calc" onclick="calculateScore()">स्कोर गणना करें</button>
+  <button class="btn reveal" onclick="revealAll()">सभी उत्तर दिखाएँ</button>
+  <button class="btn reset" onclick="resetQuiz()">रीसेट</button>
+</div>
+
+<div id="scoreBox" style="margin-top:10px; font-size:18px; font-weight:bold;"></div>
+<div class='q-block'><b>Q1. 2025 में वर्जीनिया के लेफ्टिनेंट गवर्नर के रूप में चुने गए भारतीय मूल के नेता कौन हैं?</b><div class='opt'><label><input type='radio' name='q1' id='q1A'> A) ऋषि सुनक</label></div><div class='opt'><label><input type='radio' name='q1' id='q1B'> B) गज़ाला हाश्मी</label></div><div class='opt'><label><input type='radio' name='q1' id='q1C'> C) निक्की हेली</label></div><div class='opt'><label><input type='radio' name='q1' id='q1D'> D) विवेक रामास्वामी</label></div><button class='reveal-btn' onclick="reveal('ans1')">उत्तर दिखाएँ</button><div class='ans' id='ans1'><b>उत्तर: B</b></div></div><div class='q-block'><b>Q2. 2025 में नए रक्षा लेखा महानियंत्रक (CGDA) के रूप में किसे नियुक्त किया गया है?</b><div class='opt'><label><input type='radio' name='q2' id='q2A'> A) राजीव तलवार</label></div><div class='opt'><label><input type='radio' name='q2' id='q2B'> B) विश्वजीत सहाय</label></div><div class='opt'><label><input type='radio' name='q2' id='q2C'> C) संजय मल्होत्रा</label></div><div class='opt'><label><input type='radio' name='q2' id='q2D'> D) नीता वर्मा</label></div><button class='reveal-btn' onclick="reveal('ans2')">उत्तर दिखाएँ</button><div class='ans' id='ans2'><b>उत्तर: B</b></div></div><div class='q-block'><b>Q3. हाल ही में 2025 में रक्षा मंत्रालय के अधीन नए वित्तीय सलाहकार (रक्षा सेवाएँ) के रूप में कार्यभार किसने संभाला है?</b><div class='opt'><label><input type='radio' name='q3' id='q3A'> A) अजय सेठ</label></div><div class='opt'><label><input type='radio' name='q3' id='q3B'> B) टी. वी. सोमनाथन</label></div><div class='opt'><label><input type='radio' name='q3' id='q3C'> C) एस. सोमनाथ</label></div><div class='opt'><label><input type='radio' name='q3' id='q3D'> D) राज कुमार अरोड़ा</label></div><button class='reveal-btn' onclick="reveal('ans3')">उत्तर दिखाएँ</button><div class='ans' id='ans3'><b>उत्तर: D</b></div></div><div class='q-block'><b>Q4. हाल ही में भारतीय मानक ब्यूरो (BIS) के महानिदेशक का पदभार किसने ग्रहण किया है?</b><div class='opt'><label><input type='radio' name='q4' id='q4A'> A) संजय गर्ग</label></div><div class='opt'><label><input type='radio' name='q4' id='q4B'> B) राजीव बंसल</label></div><div class='opt'><label><input type='radio' name='q4' id='q4C'> C) अरुण कुमार मिश्रा</label></div><div class='opt'><label><input type='radio' name='q4' id='q4D'> D) अनिल कुमार जैन</label></div><button class='reveal-btn' onclick="reveal('ans4')">उत्तर दिखाएँ</button><div class='ans' id='ans4'><b>उत्तर: A</b></div></div><div class='q-block'><b>Q5. खेल और जनकल्याण के क्षेत्र में योगदान हेतु यूनाइटेड किंगडम द्वारा ‘नाइटहुड’ से सम्मानित प्रसिद्ध फुटबॉल खिलाड़ी कौन हैं?</b><div class='opt'><label><input type='radio' name='q5' id='q5A'> A) स्टीवन जेरार्ड</label></div><div class='opt'><label><input type='radio' name='q5' id='q5B'> B) वेन रूनी</label></div><div class='opt'><label><input type='radio' name='q5' id='q5C'> C) फ्रैंक लैम्पार्ड</label></div><div class='opt'><label><input type='radio' name='q5' id='q5D'> D) डेविड बेकहम</label></div><button class='reveal-btn' onclick="reveal('ans5')">उत्तर दिखाएँ</button><div class='ans' id='ans5'><b>उत्तर: D</b></div></div><div class='q-block'><b>Q6. अपनी समृद्ध अवधिया पाक विरासत के लिए जिसे हाल ही में यूनेस्को द्वारा ‘सिटी ऑफ गैस्ट्रोनॉमी’ के रूप में मान्यता दी गई भारतीय शहर कौन-सा है?</b><div class='opt'><label><input type='radio' name='q6' id='q6A'> A) लखनऊ</label></div><div class='opt'><label><input type='radio' name='q6' id='q6B'> B) हैदराबाद</label></div><div class='opt'><label><input type='radio' name='q6' id='q6C'> C) अमृतसर</label></div><div class='opt'><label><input type='radio' name='q6' id='q6D'> D) जयपुर</label></div><button class='reveal-btn' onclick="reveal('ans6')">उत्तर दिखाएँ</button><div class='ans' id='ans6'><b>उत्तर: A</b></div></div><div class='q-block'><b>Q7. 2025 में भारत के 53वें मुख्य न्यायाधीश (CJI) के रूप में शपथ किसने ली?</b><div class='opt'><label><input type='radio' name='q7' id='q7A'> A) न्यायमूर्ति संजीव खन्ना</label></div><div class='opt'><label><input type='radio' name='q7' id='q7B'> B) न्यायमूर्ति बी. आर. गवई</label></div><div class='opt'><label><input type='radio' name='q7' id='q7C'> C) न्यायमूर्ति सूर्यकांत</label></div><div class='opt'><label><input type='radio' name='q7' id='q7D'> D) न्यायमूर्ति हिमा कोहली</label></div><button class='reveal-btn' onclick="reveal('ans7')">उत्तर दिखाएँ</button><div class='ans' id='ans7'><b>उत्तर: C</b></div></div><div class='q-block'><b>Q8. विवाह समारोहों के दौरान किया जाने वाला ‘गौर मरिया नृत्य’ भारत के किस राज्य का पारंपरिक नृत्य है?</b><div class='opt'><label><input type='radio' name='q8' id='q8A'> A) छत्तीसगढ़</label></div><div class='opt'><label><input type='radio' name='q8' id='q8B'> B) झारखंड</label></div><div class='opt'><label><input type='radio' name='q8' id='q8C'> C) मध्य प्रदेश</label></div><div class='opt'><label><input type='radio' name='q8' id='q8D'> D) ओडिशा</label></div><button class='reveal-btn' onclick="reveal('ans8')">उत्तर दिखाएँ</button><div class='ans' id='ans8'><b>उत्तर: A</b></div></div><div class='q-block'><b>Q9. प्रियंका चोपड़ा ने किस वर्ष मिस वर्ल्ड प्रतियोगिता जीती, जिन्हें बाद में 2016 में पद्मश्री से सम्मानित किया गया?</b><div class='opt'><label><input type='radio' name='q9' id='q9A'> A) 1999</label></div><div class='opt'><label><input type='radio' name='q9' id='q9B'> B) 2001</label></div><div class='opt'><label><input type='radio' name='q9' id='q9C'> C) 2000</label></div><div class='opt'><label><input type='radio' name='q9' id='q9D'> D) 2002</label></div><button class='reveal-btn' onclick="reveal('ans9')">उत्तर दिखाएँ</button><div class='ans' id='ans9'><b>उत्तर: C</b></div></div><div class='q-block'><b>Q10. प्रधानमंत्री स्ट्रीट वेंडर्स आत्मनिर्भर निधि (PM–SVANidhi) योजना, जो पूर्णतः आवासन और शहरी कार्य मंत्रालय द्वारा वित्तपोषित है, किस वर्ष शुरू की गई?</b><div class='opt'><label><input type='radio' name='q10' id='q10A'> A) 2020</label></div><div class='opt'><label><input type='radio' name='q10' id='q10B'> B) 2018</label></div><div class='opt'><label><input type='radio' name='q10' id='q10C'> C) 2021</label></div><div class='opt'><label><input type='radio' name='q10' id='q10D'> D) 2019</label></div><button class='reveal-btn' onclick="reveal('ans10')">उत्तर दिखाएँ</button><div class='ans' id='ans10'><b>उत्तर: A</b></div></div><div class='q-block'><b>Q11. भारतीय अंतरिक्ष अनुसंधान संगठन (ISRO) के अधीन राष्ट्रीय रिमोट सेंसिंग केंद्र (NRSC) किस शहर में स्थित है?</b><div class='opt'><label><input type='radio' name='q11' id='q11A'> A) बेंगलुरु</label></div><div class='opt'><label><input type='radio' name='q11' id='q11B'> B) चेन्नई</label></div><div class='opt'><label><input type='radio' name='q11' id='q11C'> C) नई दिल्ली</label></div><div class='opt'><label><input type='radio' name='q11' id='q11D'> D) हैदराबाद</label></div><button class='reveal-btn' onclick="reveal('ans11')">उत्तर दिखाएँ</button><div class='ans' id='ans11'><b>उत्तर: D</b></div></div><div class='q-block'><b>Q12. किस शासक ने अपनी राजधानी दिल्ली से देवगिरि (जिसे बाद में दौलताबाद नाम दिया गया) महाराष्ट्र में स्थानांतरित की?</b><div class='opt'><label><input type='radio' name='q12' id='q12A'> A) अलाउद्दीन खिलजी</label></div><div class='opt'><label><input type='radio' name='q12' id='q12B'> B) मुहम्मद बिन तुगलक</label></div><div class='opt'><label><input type='radio' name='q12' id='q12C'> C) फिरोज़ शाह तुगलक</label></div><div class='opt'><label><input type='radio' name='q12' id='q12D'> D) ग़ियासुद्दीन तुगलक</label></div><button class='reveal-btn' onclick="reveal('ans12')">उत्तर दिखाएँ</button><div class='ans' id='ans12'><b>उत्तर: B</b></div></div><div class='q-block'><b>Q13. 1615 में सम्राट जहाँगीर के मुगल दरबार में ईस्ट इंडिया कंपनी द्वारा भेजे गए अंग्रेज़ राजनयिक कौन थे?</b><div class='opt'><label><input type='radio' name='q13' id='q13A'> A) राल्फ फिच</label></div><div class='opt'><label><input type='radio' name='q13' id='q13B'> B) थॉमस रो</label></div><div class='opt'><label><input type='radio' name='q13' id='q13C'> C) विलियम हॉकिन्स</label></div><div class='opt'><label><input type='radio' name='q13' id='q13D'> D) रॉबर्ट क्लाइव</label></div><button class='reveal-btn' onclick="reveal('ans13')">उत्तर दिखाएँ</button><div class='ans' id='ans13'><b>उत्तर: B</b></div></div><div class='q-block'><b>Q14. रायचूर का युद्ध (1520) किन दो शक्तियों के बीच लड़ा गया था?</b><div class='opt'><label><input type='radio' name='q14' id='q14A'> A) विजयनगर साम्राज्य और बीजापुर सल्तनत</label></div><div class='opt'><label><input type='radio' name='q14' id='q14B'> B) मुगल साम्राज्य और बहमनी राज्य</label></div><div class='opt'><label><input type='radio' name='q14' id='q14C'> C) मराठा और मुगल</label></div><div class='opt'><label><input type='radio' name='q14' id='q14D'> D) चोल और होयसाल</label></div><button class='reveal-btn' onclick="reveal('ans14')">उत्तर दिखाएँ</button><div class='ans' id='ans14'><b>उत्तर: A</b></div></div><div class='q-block'><b>Q15. प्रथम पानीपत का युद्ध (1526) बाबर और किस शासक के बीच लड़ा गया?</b><div class='opt'><label><input type='radio' name='q15' id='q15A'> A) शेर शाह सूरी</label></div><div class='opt'><label><input type='radio' name='q15' id='q15B'> B) अलाउद्दीन खिलजी</label></div><div class='opt'><label><input type='radio' name='q15' id='q15C'> C) सिकंदर लोदी</label></div><div class='opt'><label><input type='radio' name='q15' id='q15D'> D) इब्राहीम लोदी</label></div><button class='reveal-btn' onclick="reveal('ans15')">उत्तर दिखाएँ</button><div class='ans' id='ans15'><b>उत्तर: D</b></div></div><div class='q-block'><b>Q16. भारतीय संविधान का कौन-सा अनुच्छेद यह प्रावधान करता है कि राष्ट्रपति, वित्त आयोग की सिफारिशें स्पष्टीकरणात्मक ज्ञापन सहित संसद के दोनों सदनों के समक्ष प्रस्तुत करे?</b><div class='opt'><label><input type='radio' name='q16' id='q16A'> A) अनुच्छेद 280</label></div><div class='opt'><label><input type='radio' name='q16' id='q16B'> B) अनुच्छेद 282</label></div><div class='opt'><label><input type='radio' name='q16' id='q16C'> C) अनुच्छेद 281</label></div><div class='opt'><label><input type='radio' name='q16' id='q16D'> D) अनुच्छेद 283</label></div><button class='reveal-btn' onclick="reveal('ans16')">उत्तर दिखाएँ</button><div class='ans' id='ans16'><b>उत्तर: C</b></div></div><div class='q-block'><b>Q17. कौन-सा रिट उच्चतम न्यायालय या उच्च न्यायालयों को ऐसे अधीनस्थ न्यायालय अथवा अधिकरण के आदेशों की समीक्षा कर उन्हें निरस्त करने का अधिकार देता है, जिसने अपने क्षेत्राधिकार से परे जाकर कार्य किया हो?</b><div class='opt'><label><input type='radio' name='q17' id='q17A'> A) मैंडमस (Mandamus)</label></div><div class='opt'><label><input type='radio' name='q17' id='q17B'> B) प्रोहिबिशन (Prohibition)</label></div><div class='opt'><label><input type='radio' name='q17' id='q17C'> C) क्वो-वॉरंटो (Quo Warranto)</label></div><div class='opt'><label><input type='radio' name='q17' id='q17D'> D) सर्टियोरारी (Certiorari)</label></div><button class='reveal-btn' onclick="reveal('ans17')">उत्तर दिखाएँ</button><div class='ans' id='ans17'><b>उत्तर: D</b></div></div><div class='q-block'><b>Q18. संविधान (100वाँ संशोधन) अधिनियम, 2015 ने भारत और किस पड़ोसी देश के बीच हुए भूमि सीमा समझौते को अनुमोदित किया?</b><div class='opt'><label><input type='radio' name='q18' id='q18A'> A) बांग्लादेश</label></div><div class='opt'><label><input type='radio' name='q18' id='q18B'> B) नेपाल</label></div><div class='opt'><label><input type='radio' name='q18' id='q18C'> C) भूटान</label></div><div class='opt'><label><input type='radio' name='q18' id='q18D'> D) म्यांमार</label></div><button class='reveal-btn' onclick="reveal('ans18')">उत्तर दिखाएँ</button><div class='ans' id='ans18'><b>उत्तर: A</b></div></div><div class='q-block'><b>Q19. भारतीय संविधान का कौन-सा अनुच्छेद यह प्रावधान करता है कि किसी क्षेत्र में मार्शल लॉ लागू होने की स्थिति में सरकार मौलिक अधिकारों पर प्रतिबंध लगा सकती है?</b><div class='opt'><label><input type='radio' name='q19' id='q19A'> A) अनुच्छेद 32</label></div><div class='opt'><label><input type='radio' name='q19' id='q19B'> B) अनुच्छेद 34</label></div><div class='opt'><label><input type='radio' name='q19' id='q19C'> C) अनुच्छेद 20</label></div><div class='opt'><label><input type='radio' name='q19' id='q19D'> D) अनुच्छेद 35</label></div><button class='reveal-btn' onclick="reveal('ans19')">उत्तर दिखाएँ</button><div class='ans' id='ans19'><b>उत्तर: B</b></div></div>
+</div>
+</body>
+</html>
